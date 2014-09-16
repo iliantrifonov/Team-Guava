@@ -1,5 +1,0 @@
-C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Models\bin\Debug\ExamSystem.Backend.Models.dll
-C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Models\bin\Debug\ExamSystem.Backend.Models.pdb
-C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Models\obj\Debug\ExamSystem.Backend.Models.csprojResolveAssemblyReference.cache
-C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Models\obj\Debug\ExamSystem.Backend.Models.dll
-C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Models\obj\Debug\ExamSystem.Backend.Models.pdb
