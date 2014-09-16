@@ -3,3 +3,5 @@
 /ExamSystem.Backend/ExamSystem.Backend.Models/bin
 /ExamSystem.Backend/ExamSystem.Backend.Models/obj
 /ExamSystem.Backend/packages
+*/bin
+*/obj
