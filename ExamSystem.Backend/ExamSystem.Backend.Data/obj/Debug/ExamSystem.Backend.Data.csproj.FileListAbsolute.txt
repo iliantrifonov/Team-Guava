@@ -1,0 +1,16 @@
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\obj\Debug\ExamSystem.Backend.Data.csprojResolveAssemblyReference.cache
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\bin\Debug\ExamSystem.Backend.Data.dll.config
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\bin\Debug\ExamSystem.Backend.Data.dll
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\bin\Debug\ExamSystem.Backend.Data.pdb
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\bin\Debug\EntityFramework.dll
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\bin\Debug\ExamSystem.Backend.Models.dll
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\bin\Debug\ExamSystem.Backend.Models.pdb
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\bin\Debug\EntityFramework.xml
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\obj\Debug\ExamSystem.Backend.Data.dll
+C:\Users\Home\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Data\obj\Debug\ExamSystem.Backend.Data.pdb
