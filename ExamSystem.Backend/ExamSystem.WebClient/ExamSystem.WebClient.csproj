@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\Modules\" />
+    <Folder Include="Styles\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <PropertyGroup>
