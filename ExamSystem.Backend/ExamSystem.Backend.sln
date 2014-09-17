@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamSystem.Backend.Models", "ExamSystem.Backend.Models\ExamSystem.Backend.Models.csproj", "{A7D7B205-9EDB-4A51-A37A-BE7DAFDFC09F}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamSystem.Backend.Data", "ExamSystem.Backend.Data\ExamSystem.Backend.Data.csproj", "{FBA4A681-8534-4945-85FC-42C44414033F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{4BA4F162-F815-4AA7-99DB-11A6B25207F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamSystem.WebClient", "ExamSystem.WebClient\ExamSystem.WebClient.csproj", "{A43EFEE1-59F7-4280-B730-328F83F3B688}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4BA4F162-F815-4AA7-99DB-11A6B25207F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BA4F162-F815-4AA7-99DB-11A6B25207F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BA4F162-F815-4AA7-99DB-11A6B25207F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A43EFEE1-59F7-4280-B730-328F83F3B688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A43EFEE1-59F7-4280-B730-328F83F3B688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A43EFEE1-59F7-4280-B730-328F83F3B688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A43EFEE1-59F7-4280-B730-328F83F3B688}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
