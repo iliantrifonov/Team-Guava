@@ -15,11 +15,11 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            //var context = new ExamSystemData();
-            //context.Comments.Add(new ExamSystem.Backend.Models.Comment());
+            var context = new ExamSystemData();
+            context.Comments.Add(new ExamSystem.Backend.Models.Comment());
 
-            var a = new DropNet.Models.ChunkedUpload();
-            FilesResource.InsertMediaUpload request;
+            //var a = new DropNet.Models.ChunkedUpload();
+            //FilesResource.InsertMediaUpload request;
         }
     }
 }

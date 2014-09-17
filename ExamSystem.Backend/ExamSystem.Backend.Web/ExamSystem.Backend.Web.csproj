@@ -229,7 +229,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProblemsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DataModels\DownloadPathDataModel.cs" />
+    <Compile Include="DataModels\ProblemDataModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
