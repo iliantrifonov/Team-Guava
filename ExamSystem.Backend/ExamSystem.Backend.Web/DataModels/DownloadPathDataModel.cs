@@ -14,9 +14,22 @@
             {
                 AddDate = e.AddDate,
                 Link = e.Link,
-                Message = e.Message
+                Message = e.Message,
+                Id = e.Id
             };
         }
+
+        public static Func<DownloadPathDataModel, DownloadPath> GetOriginal()
+        {
+            return e => new DownloadPath()
+            {
+                AddDate = e.AddDate,
+                Link = e.Link,
+                Message = e.Message,
+            };
+        }
+
+        public int Id { get; set; }
 
         public string Message { get; set; }
 
