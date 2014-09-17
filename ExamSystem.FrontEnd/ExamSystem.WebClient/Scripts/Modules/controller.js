@@ -1,29 +1,56 @@
 ﻿/// <reference path="data-persister.js" />
-define(["DataPersister", "jquery"], function (DataPersister) {
+define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htmlRenderer) {
     var controller = (function () {
-        var persister = DataPersister.getDataPersister('url');
+        var persister = DataPersister.getDataPersister('http://localhost:1945/api/');
         var $main = $('#main');
 
         function attachEvents() {
-            $main.on('click', '#login-user', login);
+            $main.on('click', '#login-user', loginUser);
+            $main.on('click', '#login-admin', loginAdmin);
+            $main.on('click', '#all-exams', renderAllExams)
         }
 
         function Controller() {
         }
 
-        function login() {
+        function loginUser(ev) {
             var $email = $('#email').val();
             var $password = $('#password').val();
+            if ($email === '' || $password === '') {
+                alert("Username and password are required");
+                ev.preventDefault();
+                return;
+            }
+
             persister.userPersister.login($email, $password);
-            window.location.hash = '#/UserLogIn';
+            window.location.hash = '#/UserHomepage';
+            htmlRenderer.renderUsername(persister.userPersister.getSessionKey());
+            renderAllExams();
+        }
+
+        function loginAdmin(ev) {
+            var $email = $('#email').val();
+            var $password = $('#password').val();
+            if ($email === '' || $password === '') {
+                alert("Username and password are required");
+                ev.preventDefault();
+                return;
+            }
+
+            persister.adminPersister.login($email, $password);
+            window.location.hash = '#/AdminHomepage';
+            htmlRenderer.renderUsername(persister.adminPersister.getSessionKey());
+            renderAllExams();
         }
 
         function renderAllExams() {
-            $main.on('click', '#all-exams')
+            var examsData = persister.getAllExams();
+            htmlRenderer.renderAllExam(examsData);
         }
 
         return {
-            login: login,
+            loginUser: loginUser,
+            loginAdmin: loginAdmin,
             attachEvents: attachEvents
         }
     })();

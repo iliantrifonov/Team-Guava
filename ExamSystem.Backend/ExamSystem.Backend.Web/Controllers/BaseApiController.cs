@@ -8,7 +8,6 @@ using System.Web.Http;
 
 namespace ExamSystem.Backend.Web.Controllers
 {
-    [Authorize]
     public abstract class BaseApiController : ApiController
     {
         protected IExamSystemData data;

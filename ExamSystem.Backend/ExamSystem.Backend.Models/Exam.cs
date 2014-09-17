@@ -13,7 +13,7 @@
             this.Id = Guid.NewGuid();
             this.Users = new HashSet<User>();
             this.Problems = new HashSet<Problem>();
-            this.Comment = new HashSet<Comment>();
+            this.Comments = new HashSet<Comment>();
         }
 
         public Guid Id { get; set; }
@@ -31,6 +31,6 @@
 
         public virtual ICollection<Problem> Problems { get; set; }
 
-        public virtual ICollection<Comment> Comment { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

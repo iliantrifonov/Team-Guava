@@ -2,8 +2,8 @@
 
     function DataPersister(serviceUrl) {
         this.serviceUrl = serviceUrl;
-        this.userPersister = new UserPersister(this.serviceUrl);
-        this.adminPersister = new AdminPersister(this.serviceUrl + 'post');
+        this.userPersister = new UserPersister(this.serviceUrl + 'user');
+        this.adminPersister = new AdminPersister(this.serviceUrl + 'admin');
     }
 
     var AdminPersister = (function () {
@@ -42,7 +42,7 @@
                 localStorage.setItem("sessionKey", value);
             },
             setEmail: function (value) {
-                this.email = value; 
+                this.email = value;
                 localStorage.setItem("email", value);
             },
             clearSessionKey: function () {
@@ -89,6 +89,13 @@
             },
             isUserLoggedIn: function () {
                 return (this.getSessionKey() !== null);
+            },
+            getAllExams: function () {
+                return httpRequester.get().getJSON(this.serviceUrl + 'problems/all?examid=xxx').then(function (data) {
+                    return data;
+                }, function (err) {
+                    console.log(err.responseText); // to handle the error better!
+                });
             }
         }
 

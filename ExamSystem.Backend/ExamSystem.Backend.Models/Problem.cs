@@ -9,7 +9,7 @@
     {
         public Problem()
         {
-            this.DownloadPath = new HashSet<DownloadPath>();
+            this.DownloadPaths = new HashSet<DownloadPath>();
         }
 
         public int Id { get; set; }
@@ -18,7 +18,7 @@
         [Required]
         public string Name { get; set; }
 
-        public virtual ICollection<DownloadPath> DownloadPath { get; set; }
+        public virtual ICollection<DownloadPath> DownloadPaths { get; set; }
 
         public virtual Exam Exam { get; set; }
     }
