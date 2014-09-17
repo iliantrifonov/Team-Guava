@@ -78,6 +78,7 @@
     <Content Include="Scripts\Libs\sammy-0.7.5.js" />
     <Content Include="Scripts\Libs\sammy-0.7.5.min.js" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\Modules\data-persister.js" />
     <Content Include="Scripts\Modules\http-requester.js" />
     <Content Include="Views\Register.html" />
     <Content Include="Views\UserLogIn.html" />
