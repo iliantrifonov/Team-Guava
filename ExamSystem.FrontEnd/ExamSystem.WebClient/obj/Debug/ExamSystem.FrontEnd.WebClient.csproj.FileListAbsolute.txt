@@ -1,0 +1,6 @@
+D:\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\ExamSystem.FrontEnd.WebClient.dll.config
+D:\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\ExamSystem.FrontEnd.WebClient.dll
+D:\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\ExamSystem.FrontEnd.WebClient.pdb
+D:\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\obj\Debug\ExamSystem.FrontEnd.WebClient.csprojResolveAssemblyReference.cache
+D:\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\obj\Debug\ExamSystem.FrontEnd.WebClient.dll
+D:\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\obj\Debug\ExamSystem.FrontEnd.WebClient.pdb
