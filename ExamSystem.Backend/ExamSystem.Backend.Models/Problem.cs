@@ -7,6 +7,11 @@
 
     public class Problem
     {
+        public Problem()
+        {
+            this.DownloadPath = new HashSet<DownloadPath>();
+        }
+
         public int Id { get; set; }
 
         [MaxLength(50)]
