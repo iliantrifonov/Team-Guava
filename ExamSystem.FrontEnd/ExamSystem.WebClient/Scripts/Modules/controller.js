@@ -1,5 +1,5 @@
 ﻿/// <reference path="data-persister.js" />
-define(["HttpRequester", "DataPersister", "jquery"], function (HttpRequester, DataPersister) {
+define(["DataPersister", "jquery"], function (DataPersister) {
     var controller = (function () {
         var persister = DataPersister.getDataPersister('url');
         var $main = $('#main');
@@ -12,9 +12,9 @@ define(["HttpRequester", "DataPersister", "jquery"], function (HttpRequester, Da
         }
 
         function login() {
-            var $email = $('email').val();
-            var $password = $('password').val();
-            persister.UserPersister.login($email, $password);
+            var $email = $('#email').val();
+            var $password = $('#password').val();
+            persister.userPersister.login($email, $password);
             window.location.hash = '#/UserLogIn';
         }
 
@@ -23,7 +23,7 @@ define(["HttpRequester", "DataPersister", "jquery"], function (HttpRequester, Da
         }
 
         return {
-            renderLogin: renderLogin,
+            login: login,
             attachEvents: attachEvents
         }
     })();

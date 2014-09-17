@@ -1,4 +1,4 @@
-﻿define(['httpRequester', 'Q', 'cryptoJS'], function (httpRequester, Q) {
+﻿define(['httpRequester', 'Q'], function (httpRequester, Q) {
 
     function DataPersister(serviceUrl) {
         this.serviceUrl = serviceUrl;
