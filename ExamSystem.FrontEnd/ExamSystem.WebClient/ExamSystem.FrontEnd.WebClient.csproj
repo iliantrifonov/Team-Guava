@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Styles\style.css.map" />
+    <Content Include="Styles\style.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -73,6 +75,7 @@
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\Libs\jquery-2.1.1.js" />
     <Content Include="Scripts\Libs\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\Libs\mustache.js" />
     <Content Include="Scripts\Libs\r.js" />
     <Content Include="Scripts\Libs\require.js" />
     <Content Include="Scripts\Libs\q.js" />
@@ -82,9 +85,12 @@
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\Modules\controller.js" />
     <Content Include="Scripts\Modules\data-persister.js" />
+    <Content Include="Scripts\Modules\html-renderer.js" />
     <Content Include="Scripts\Modules\http-requester.js" />
+    <Content Include="Styles\style.css" />
+    <Content Include="Views\AdminHomepage.html" />
     <Content Include="Views\Register.html" />
-    <Content Include="Views\UserLogIn.html" />
+    <Content Include="Views\UserHomepage.html" />
     <Content Include="Views\Welcome.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\Libs\jquery-2.1.1.min.map" />
@@ -92,9 +98,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Styles\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
