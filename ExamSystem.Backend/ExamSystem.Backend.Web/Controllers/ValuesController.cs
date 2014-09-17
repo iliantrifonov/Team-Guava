@@ -10,6 +10,7 @@
     using System.Web.Http;
     using System.Web.Http.Cors;
 
+	[Authorize(Roles = "Admin")]
     [EnableCors("*", "*", "*")]
     public class ValuesController : BaseApiController
     {
