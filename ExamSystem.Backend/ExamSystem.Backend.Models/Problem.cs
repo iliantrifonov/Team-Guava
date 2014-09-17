@@ -19,5 +19,7 @@
         public string Name { get; set; }
 
         public virtual ICollection<DownloadPath> DownloadPath { get; set; }
+
+        public virtual Exam Exam { get; set; }
     }
 }

@@ -11,5 +11,7 @@
 
         [Required]
         public DateTime? Date { get; set; }
+
+        public virtual Problem Problem { get; set; }
     }
 }
