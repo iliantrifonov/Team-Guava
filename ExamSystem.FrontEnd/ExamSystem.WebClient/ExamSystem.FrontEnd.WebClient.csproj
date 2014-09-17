@@ -78,6 +78,7 @@
     <Content Include="Scripts\Libs\sammy-0.7.5.js" />
     <Content Include="Scripts\Libs\sammy-0.7.5.min.js" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\Modules\http-requester.js" />
     <Content Include="Views\Register.html" />
     <Content Include="Views\UserLogIn.html" />
     <Content Include="Views\Welcome.html" />
@@ -88,7 +89,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Scripts\Modules\" />
     <Folder Include="Styles\" />
   </ItemGroup>
   <PropertyGroup>
