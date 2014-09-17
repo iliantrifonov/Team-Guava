@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -65,10 +66,27 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="index.html" />
+    <None Include="Scripts\Libs\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\Libs\jquery-2.1.1.js" />
+    <Content Include="Scripts\Libs\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\Libs\r.js" />
+    <Content Include="Scripts\Libs\require.js" />
+    <Content Include="Scripts\Libs\q.js" />
+    <Content Include="Scripts\Libs\q.min.js" />
+    <Content Include="Scripts\Libs\sammy-0.7.5.js" />
+    <Content Include="Scripts\Libs\sammy-0.7.5.min.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
+    <Content Include="Scripts\Libs\jquery-2.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\Modules\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
