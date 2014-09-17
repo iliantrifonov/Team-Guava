@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using ExamSystem.Backend.Web.Models;
 using ExamSystem.Backend.Web.Providers;
 using ExamSystem.Backend.Web.Results;
+using ExamSystem.Backend.Models;
 
 namespace ExamSystem.Backend.Web.Controllers
 {
@@ -250,7 +251,7 @@ namespace ExamSystem.Backend.Web.Controllers
                 return new ChallengeResult(provider, this);
             }
 
-            ApplicationUser user = await UserManager.FindAsync(new UserLoginInfo(externalLogin.LoginProvider,
+            var user = await UserManager.FindAsync(new UserLoginInfo(externalLogin.LoginProvider,
                 externalLogin.ProviderKey));
 
             bool hasRegistered = user != null;
@@ -328,7 +329,9 @@ namespace ExamSystem.Backend.Web.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            
+
+            var user = new Backend.Models.User() { UserName = model.Email, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
@@ -357,7 +360,7 @@ namespace ExamSystem.Backend.Web.Controllers
                 return InternalServerError();
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new User() { UserName = model.Email, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user);
             if (!result.Succeeded)

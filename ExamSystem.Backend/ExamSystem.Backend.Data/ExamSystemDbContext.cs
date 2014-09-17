@@ -8,9 +8,9 @@
     public class ExamSystemDbContext : IdentityDbContext<User>
     {
         public ExamSystemDbContext()
-            : base("name=ExamSystemDb", throwIfV1Schema: false)
+            : base("ExamSystemDb", throwIfV1Schema: false)
         {
-            Database.SetInitializer<ExamSystemDbContext>(new MigrateDatabaseToLatestVersion<ExamSystemDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ExamSystemDbContext, Configuration>());
         }
 
         public static ExamSystemDbContext Create()

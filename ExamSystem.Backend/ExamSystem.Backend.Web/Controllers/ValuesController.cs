@@ -10,7 +10,7 @@
     using System.Web.Http;
     using System.Web.Http.Cors;
 
-    [EnableCors]
+    [EnableCors("*", "*", "*")]
     public class ValuesController : BaseApiController
     {
         private IUserIdProvider userIdProvider;
