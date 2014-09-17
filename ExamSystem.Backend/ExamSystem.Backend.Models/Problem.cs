@@ -7,6 +7,11 @@
 
     public class Problem
     {
+        public Problem()
+        {
+            this.DownloadPath = new HashSet<DownloadPath>();
+        }
+
         public int Id { get; set; }
 
         [MaxLength(50)]
@@ -14,5 +19,7 @@
         public string Name { get; set; }
 
         public virtual ICollection<DownloadPath> DownloadPath { get; set; }
+
+        public virtual Exam Exam { get; set; }
     }
 }

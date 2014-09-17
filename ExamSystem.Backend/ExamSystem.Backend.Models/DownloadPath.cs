@@ -15,5 +15,7 @@
 
         [Required]
         public string Link { get; set; }
+
+        public virtual Problem Problem { get; set; }
     }
 }
