@@ -3,16 +3,16 @@
     function DataPersister(serviceUrl) {
         this.serviceUrl = serviceUrl;
         this.userPersister = new UserPersister(this.serviceUrl);
-        this.visitorPersister = new VisitorPersister(this.serviceUrl + 'post');
+        this.adminPersister = new AdminPersister(this.serviceUrl + 'post');
     }
 
-    var VisitorPersister = (function () {
+    var AdminPersister = (function () {
 
-        function VisitorPersister(serviceUrl) {
+        function AdminPersister(serviceUrl) {
             this.serviceUrl = serviceUrl;
         }
 
-        VisitorPersister.prototype = {
+        AdminPersister.prototype = {
             getPosts: function () {
                 return httpRequester.get().getJSON(this.serviceUrl);
             },
@@ -21,7 +21,7 @@
             }
         }
 
-        return VisitorPersister;
+        return AdminPersister;
 
     }());
 
@@ -35,42 +35,41 @@
             getSessionKey: function () {
                 return localStorage.getItem("sessionKey");
             },
-            getUsername: function () {
-                return localStorage.getItem("username");
+            getEmail: function () {
+                return localStorage.getItem("email");
             },
             setSessionKey: function (value) {
                 localStorage.setItem("sessionKey", value);
             },
-            setUsername: function (value) {
-                this.username = value; // if not working->comment
-                localStorage.setItem("username", value);
+            setEmail: function (value) {
+                this.email = value; 
+                localStorage.setItem("email", value);
             },
             clearSessionKey: function () {
                 localStorage.removeItem('sessionKey');
             },
-            clearUsername: function () {
-                localStorage.removeItem('username');
+            clearEmail: function () {
+                localStorage.removeItem('email');
             },
-            login: function (username, password) {
+            login: function (email, password) {
                 var self = this;
-                //console.log(this.serviceUrl);
-                return httpRequester.get().postJSON(this.serviceUrl + 'auth', {
-                    username: username,
-                    authCode: CryptoJS.SHA1(username + password).toString()
+                return httpRequester.get().postJSON(this.serviceUrl + 'Register', {
+                    email: email,
+                    authCode: (email + password).toString() //maybe cryptojs
                 }).then(function (result) {
                     self.setSessionKey(result.sessionKey);
-                    self.setUsername(username);
+                    self.setEmail(email);
                 }, function (err) {
                     console.log(err); // to handle the error better!
                 });
             },
-            register: function (username, password) {
+            register: function (email, password) {
 
                 var self = this;
 
-                return httpRequester.get().postJSON(this.serviceUrl + 'user', {
-                    username: username,
-                    authCode: CryptoJS.SHA1(username + password).toString()
+                return httpRequester.get().postJSON(this.serviceUrl + 'User', {
+                    email: email,
+                    authCode: (email + password).toString()
                 }).then(function (result) {
                     //console.log(result);
                 }, function (err) {
@@ -83,7 +82,7 @@
                     'X-SessionKey': JSON.stringify(self.getSessionKey()) // may not be working
                 }).then(function (result) {
                     self.clearSessionKey();
-                    self.clearUsername();
+                    self.clearemail();
                 }, function (err) {
                     console.log(err.responseText); // to handle the error better!
                 });
