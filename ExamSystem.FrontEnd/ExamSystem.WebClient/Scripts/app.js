@@ -8,22 +8,25 @@
         }
     });
 
-    require(['jquery', 'sammy'], function ($, Sammy) {
+    require(['jquery', 'Sammy'], function (jquery, Sammy) {
 
-        //var app = Sammy('#main', function () {
-        //    this.get("#/", function () {
-        //        $('#main').load('Views/UserLogIn.html');
-        //    });
+        var app = Sammy('#main', function () {
+            this.get("#/", function () {
+                $('#main').load('Views/Welcome.html');
+            });
 
-        //    this.get("#/chatroom", function () {
-        //        $('#main').load('Views/ChatRoom.html');
-        //    });
+            this.get("#/UserLogIn", function () {
+                $('#main').load('Views/UserLogIn.html');
+            });
 
-        //});
-        //$(function () {
-        //    app.run('#/');
-        //})
-       
+            this.get("#/Register", function () {
+                $('#main').load('Views/Register.html');
+            });
+        });
+        $(function () {
+            app.run('#/');
+        })
+
     });
 
 }());
