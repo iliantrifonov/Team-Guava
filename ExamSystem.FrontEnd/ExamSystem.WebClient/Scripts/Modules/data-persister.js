@@ -36,7 +36,8 @@
                 var self = this;
                 return httpRequester.get().postJSON(this.serviceUrl + 'Token', {
                     userName: userName,
-                    password: password
+                    password: password,
+                    grant_type: "password"
                 }).then(function (result) {
                     self.setSessionKey(result.access_token);
                     self.setUserName(userName);
@@ -53,7 +54,7 @@
                     Password: password,
                     ConfirmPassword: confirmPassword
                 }).then(function (result) {
-                    //console.log(result);
+
                 }, function (err) {
                     console.log(err.responseText); // to handle the error better!
                 });
@@ -115,13 +116,13 @@
                 var self = this;
                 return httpRequester.get().postJSON(this.serviceUrl + 'Token', {
                     userName: userName,
-                    password: password
+                    password: password,
+                    grant_type: "password"
                 }).then(function (result) {
                     self.setSessionKey(result.access_token);
                     self.setUserName(userName);
                 }, function (err) {
-                    alert('Invalid username or password')
-
+                    alert('Invalid username or password');
                     console.log(err); // to handle the error better!
                 });
             },

@@ -10,3 +10,4 @@
 /// <reference path="modules/http-requester.js" />
 /// <reference path="libs/mustache.js" />
 /// <reference path="modules/html-renderer.js" />
+/// <reference path="libs/pubnub.min.js" />

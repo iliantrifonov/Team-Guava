@@ -9,8 +9,6 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
             $main.on('click', '#login-admin', loginAdmin);
             $main.on('click', '#all-exams', renderAllExams);
             $main.on('click', "#register-btn", registerUser);
-            $main.on('click', "#all-exams", renderAllExams);
-
 
         }
 
@@ -21,7 +19,7 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
             window.location.hash = '#/';
         }
 
-        function registerUser() {
+        function registerUser(ev) {
             var $email = $('#email').val();
             var $password = $('#password').val();
             var $confirm = $('#confirm-password').val();
@@ -44,7 +42,6 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
             }
 
             persister.userPersister.login($email, $password).then(function () {
-
                 window.location.hash = '#/UserHomepage';
                 htmlRenderer.renderUsername(persister.userPersister.getUserName());
                 renderAllExams();

@@ -9,5 +9,23 @@
     <header>EXAM SYSTEM, Guava style</header>
     <div id="main">
     </div>
+    <div id=pubnub></div>
+    <script src="http://cdn.pubnub.com/pubnub.min.js"> </script>
+    <script type="text/javascript">
+        (function () {
+
+            var pubnub = PUBNUB.init({
+                publish_key: 'pub-c-c693309f-b4aa-46ad-b8c2-b586283d5ac5',
+                subscribe_key: 'sub-c-71fcc204-3f55-11e4-8637-02ee2ddab7fe',
+                origin: 'pubsub.pubnub.com'
+            });
+
+            pubnub.subscribe({
+                channel: "exam-system",
+                message: function (m) { alert(m) },
+            });
+
+        })();</script>
+
 </body>
 </html>
