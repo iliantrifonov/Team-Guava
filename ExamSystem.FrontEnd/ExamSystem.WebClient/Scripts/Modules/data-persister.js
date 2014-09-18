@@ -2,8 +2,8 @@
 
     function DataPersister(serviceUrl) {
         this.serviceUrl = serviceUrl;
-        this.userPersister = new UserPersister(this.serviceUrl + 'user');
-        this.adminPersister = new AdminPersister(this.serviceUrl + 'admin');
+        this.userPersister = new UserPersister(this.serviceUrl);
+        this.adminPersister = new AdminPersister(this.serviceUrl);
     }
 
     var AdminPersister = (function () {
@@ -35,48 +35,49 @@
             getSessionKey: function () {
                 return localStorage.getItem("sessionKey");
             },
-            getEmail: function () {
-                return localStorage.getItem("email");
+            getUserName: function () {
+                return localStorage.getItem("userName");
             },
             setSessionKey: function (value) {
                 localStorage.setItem("sessionKey", value);
             },
-            setEmail: function (value) {
+            setUserName: function (value) {
                 this.email = value;
-                localStorage.setItem("email", value);
+                localStorage.setItem("userName", value);
             },
             clearSessionKey: function () {
                 localStorage.removeItem('sessionKey');
             },
-            clearEmail: function () {
+            clearUserName: function () {
                 localStorage.removeItem('email');
             },
-            login: function (email, password) {
+            login: function (userName, password) {
                 var self = this;
-                return httpRequester.get().postJSON(this.serviceUrl + 'Register', {
-                    email: email,
-                    authCode: (email + password).toString() //maybe cryptojs
+                return httpRequester.get().postJSON(this.serviceUrl + 'Token', {
+                    userName: userName,
+                    password: password
                 }).then(function (result) {
-                    self.setSessionKey(result.sessionKey);
-                    self.setEmail(email);
+                    self.setSessionKey(result.access_token);
+                    self.setUserName(userName);
                 }, function (err) {
                     console.log(err); // to handle the error better!
                 });
             },
-            register: function (email, password) {
+            register: function (email, password, confirmPassword) {
 
                 var self = this;
 
-                return httpRequester.get().postJSON(this.serviceUrl + 'User', {
-                    email: email,
-                    authCode: (email + password).toString()
+                return httpRequester.get().postJSON(this.serviceUrl + 'api/Account/Register', {
+                    Email: email,
+                    Password: password,
+                    ConfirmPassword: confirmPassword
                 }).then(function (result) {
                     //console.log(result);
                 }, function (err) {
                     console.log(err.responseText); // to handle the error better!
                 });
             },
-            logout: function () {
+            logout: function () { //TODO: Logout
                 var self = this;
                 return httpRequester.get().putJSON(this.serviceUrl + 'user' + '?sessionKey=' + self.getSessionKey(), {
                     'X-SessionKey': JSON.stringify(self.getSessionKey()) // may not be working
