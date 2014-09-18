@@ -17,6 +17,11 @@
             this.set = context.Set<T>();
         }
 
+        public T Find(object id)
+        {
+            return this.set.Find(id);
+        }
+
         public IQueryable<T> All()
         {
             return this.set.AsQueryable();
@@ -37,9 +42,19 @@
             ChangeState(entity, EntityState.Modified);
         }
 
-        public void Delete(T entity)
+        public T Delete(T entity)
         {
             ChangeState(entity, EntityState.Deleted);
+
+            return entity;
+        }
+
+        public T Delete(object id)
+        {
+            var entity = this.set.Find(id);
+            ChangeState(entity, EntityState.Deleted);
+
+            return entity;
         }
 
         public void Detach(T entity)
@@ -60,7 +75,7 @@
             {
                 this.set.Attach(entity);
             }
-
+            
             entry.State = state;
             return entry;
         }
