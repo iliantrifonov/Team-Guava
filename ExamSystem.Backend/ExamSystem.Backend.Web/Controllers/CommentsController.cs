@@ -51,7 +51,12 @@
             {
                 return BadRequest();
             }
-            
+
+            if (string.IsNullOrWhiteSpace(comment.ExamId) || comment.ExamId.Length < 36)
+            {
+                return BadRequest();
+            }
+
             var idAsGuid = new Guid(comment.ExamId);
             var exam = this.data.Exams
                 .All()
