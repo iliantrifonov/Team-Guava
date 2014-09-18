@@ -123,7 +123,7 @@
                     self.setUserName(userName);
                 }, function (err) {
                     alert('Invalid username or password');
-                    console.log(err); // to handle the error better!
+                    console.log(err); 
                 });
             },
             register: function (email, password, confirmPassword) {

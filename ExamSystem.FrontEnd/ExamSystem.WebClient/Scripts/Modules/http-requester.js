@@ -9,19 +9,15 @@
         var AjaxRequest = function (url, type, data, headers) {
             var deferred = Q.defer();
 
-            if (data) {
-                data = JSON.stringify(data);
-            }
-            if (headers) {
-                headers = JSON.stringify(headers);
-            }
+            data = data || {};
+            headers = headers || {};
 
             $.ajax({
                 url: url,
                 type: type,
                 data: data,
                 contentType: "application/json",
-                headers: headers, //check for a problem
+                headers: headers,
                 success: function (responseData) {
                     deferred.resolve(responseData);
                 },
@@ -41,25 +37,25 @@
                 return AjaxRequest(url, "GET");
             },
             putJSON: function (url, headers) {
-                return AjaxRequest(url, "PUT", headers); // if not working, fix it
+                return AjaxRequest(url, "PUT", headers); s
 
-                //var deferred = Q.defer();
+                var deferred = Q.defer();
 
-                //$.ajax({
-                //    url: url,
-                //    type: "PUT",
-                //    data: data,
-                //    contentType: "application/json",
-                //    headers: headers, //check for a problem
-                //    success: function (responseData) {
-                //        deferred.resolve(responseData);
-                //    },
-                //    error: function (errorData) {
-                //        deferred.reject(errorData);
-                //    }
-                //});
+                $.ajax({
+                    url: url,
+                    type: "PUT",
+                    data: data,
+                    contentType: "application/json",
+                    headers: headers, 
+                    success: function (responseData) {
+                        deferred.resolve(responseData);
+                    },
+                    error: function (errorData) {
+                        deferred.reject(errorData);
+                    }
+                });
 
-                //return deferred.promise;
+                return deferred.promise;
             }
 
         }
