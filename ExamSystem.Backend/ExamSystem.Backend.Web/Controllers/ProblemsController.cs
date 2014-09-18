@@ -22,6 +22,7 @@
         [HttpGet]
         public IHttpActionResult All(string examId)
         {
+            // TODO: Check if the student is registered for the exam
             var idAsGuid = new Guid(examId);
 
             var exam = this.data.Exams.All()
@@ -40,6 +41,7 @@
         [HttpGet]
         public IHttpActionResult GetById(int id)
         {
+            // TODO: Check if the student is registered for the exam
             var problem = this.data.Problems
                 .All()
                 .Where(p => p.Id == id)
@@ -57,6 +59,7 @@
         [HttpPost]
         public IHttpActionResult Add([FromBody]ProblemDataModel problem, string examId)
         {
+            // TODO: This is not how this is supposed to work, fix it to work properly, and with files.
             if (problem == null || !ModelState.IsValid)
             {
                 return BadRequest();
