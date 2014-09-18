@@ -6,6 +6,7 @@
     using System.Web;
 
     using ExamSystem.Backend.Models;
+using System.Linq.Expressions;
 
     public class ExamDataModel
     {
@@ -17,15 +18,18 @@
 
         public DateTime? EndTime { get; set; }
 
-        public static Func<Exam, ExamDataModel> GetModel()
+        public static Expression<Func<Exam, ExamDataModel>> GetModel
         {
-            return e => new ExamDataModel()
+            get
             {
-                Id = e.Id.ToString(),
-                Name = e.Name,
-                StartTime = e.StartTime,
-                EndTime = e.EndTime
-            };
+                return e => new ExamDataModel()
+                {
+                    Id = e.Id.ToString(),
+                    Name = e.Name,
+                    StartTime = e.StartTime,
+                    EndTime = e.EndTime
+                };
+            }
         }
     }
 }

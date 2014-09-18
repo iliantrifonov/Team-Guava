@@ -38,8 +38,8 @@
                 return NotFound();
             }
 
-            var comments = exam.Comments
-                .Select(CommentsDataModel.GetModel());
+            var comments = exam.Comments.AsQueryable()
+                .Select(CommentsDataModel.GetModel);
 
             return Ok(comments);
         }

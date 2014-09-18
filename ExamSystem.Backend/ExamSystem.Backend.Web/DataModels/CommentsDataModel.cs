@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Linq.Expressions;
     using System.Web;
 
     using ExamSystem.Backend.Models;
@@ -15,14 +16,17 @@
 
         public DateTime? Date { get; set; }
 
-        public static Func<Comment, CommentsDataModel> GetModel()
+        public static Expression<Func<Comment, CommentsDataModel>> GetModel
         {
-            return c => new CommentsDataModel()
+            get
             {
-                Date = c.Date,
-                Text = c.Text,
-                ExamId = c.ExamId == null ? null : c.ExamId.ToString()
-            };
+                return c => new CommentsDataModel()
+                {
+                    Date = c.Date,
+                    Text = c.Text,
+                    ExamId = c.ExamId == null ? null : c.ExamId.ToString()
+                };
+            }
         }
     }
 }

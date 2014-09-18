@@ -33,7 +33,7 @@
                 return NotFound();
             }
 
-            var problems = exam.Problems.Select(ProblemDataModel.GetModel());
+            var problems = exam.Problems.AsQueryable().Select(ProblemDataModel.GetModel);
 
             return Ok(problems);
         }
@@ -45,7 +45,7 @@
             var problem = this.data.Problems
                 .All()
                 .Where(p => p.Id == id)
-                .Select(ProblemDataModel.GetModel())
+                .Select(ProblemDataModel.GetModel)
                 .FirstOrDefault();
 
             if (problem == null)
@@ -79,9 +79,9 @@
             var problemToAdd = new Problem()
             {
                 Name = problem.Name,
-                DownloadPaths = problem.DownloadPaths
+                DownloadPaths = problem.DownloadPaths.AsQueryable()
                         .Select(DownloadPathDataModel
-                        .GetOriginal())
+                        .GetOriginal)
                         .ToList(),
             };
 

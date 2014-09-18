@@ -24,7 +24,7 @@
             var examsToReturn = this.data.Exams
                 .All()
                 .OrderBy(e => e.StartTime)
-                .Select(ExamDataModel.GetModel());
+                .Select(ExamDataModel.GetModel);
 
             return Ok(examsToReturn);
         }
@@ -37,7 +37,7 @@
                 .OrderBy(e => e.StartTime)
                 .Skip(countPerPage * (page - 1))
                 .Take(countPerPage)
-                .Select(ExamDataModel.GetModel());
+                .Select(ExamDataModel.GetModel);
 
             return Ok(examsToReturn);
         }
@@ -54,7 +54,7 @@
             var exam = this.data.Exams
                 .All()
                 .Where(e => e.Id == idAsGuid)
-                .Select(ExamDataModel.GetModel())
+                .Select(ExamDataModel.GetModel)
                 .FirstOrDefault();
 
             if (exam == null)
@@ -78,8 +78,8 @@
                 return NotFound();
             }
 
-            var exams = user.Exams
-                .Select(ExamDataModel.GetModel());
+            var exams = user.Exams.AsQueryable()
+                .Select(ExamDataModel.GetModel);
 
             return Ok(exams);
         }

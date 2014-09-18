@@ -4,6 +4,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Linq.Expressions;
     using System.Web;
 
     public class DownloadPathDataModel
@@ -17,25 +18,31 @@
         public string Link { get; set; }
 
 
-        public static Func<DownloadPath, DownloadPathDataModel> GetModel()
+        public static Expression<Func<DownloadPath, DownloadPathDataModel>> GetModel
         {
-            return e => new DownloadPathDataModel()
+            get
             {
-                AddDate = e.AddDate,
-                Link = e.Link,
-                Message = e.Message,
-                Id = e.Id
-            };
+                return e => new DownloadPathDataModel()
+                {
+                    AddDate = e.AddDate,
+                    Link = e.Link,
+                    Message = e.Message,
+                    Id = e.Id
+                };
+            }
         }
 
-        public static Func<DownloadPathDataModel, DownloadPath> GetOriginal()
+        public static Expression<Func<DownloadPathDataModel, DownloadPath>> GetOriginal
         {
-            return e => new DownloadPath()
+            get
             {
-                AddDate = e.AddDate,
-                Link = e.Link,
-                Message = e.Message,
-            };
+                return e => new DownloadPath()
+                {
+                    AddDate = e.AddDate,
+                    Link = e.Link,
+                    Message = e.Message,
+                };
+            }
         }
     }
 }

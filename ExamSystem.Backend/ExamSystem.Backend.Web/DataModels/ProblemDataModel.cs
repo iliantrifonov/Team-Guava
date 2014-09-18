@@ -21,15 +21,19 @@
 
         public virtual IEnumerable<DownloadPathDataModel> DownloadPaths { get; set; }
 
-        public static Func<Problem, ProblemDataModel> GetModel()
+        public static Expression<Func<Problem, ProblemDataModel>> GetModel
         {
-            return e => new ProblemDataModel()
+            get
             {
-                Id = e.Id,
-                Name = e.Name,
-                DownloadPaths = e.DownloadPaths
-                    .Select(DownloadPathDataModel.GetModel()),
-            };
+                return e => new ProblemDataModel()
+                {
+                    Id = e.Id,
+                    Name = e.Name,
+                    DownloadPaths = e.DownloadPaths
+                                     .AsQueryable()
+                                     .Select(DownloadPathDataModel.GetModel),
+                };
+            }
         }
     }
 }
