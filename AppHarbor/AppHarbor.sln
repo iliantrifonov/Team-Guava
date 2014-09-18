@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamSystem.Backend.Web", "..\ExamSystem.Backend\ExamSystem.Backend.Web\ExamSystem.Backend.Web.csproj", "{D25155BE-4EC8-44CF-8E49-734B0762443B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamSystem.Backend.Models", "..\ExamSystem.Backend\ExamSystem.Backend.Models\ExamSystem.Backend.Models.csproj", "{A7D7B205-9EDB-4A51-A37A-BE7DAFDFC09F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamSystem.Backend.Data", "..\ExamSystem.Backend\ExamSystem.Backend.Data\ExamSystem.Backend.Data.csproj", "{FBA4A681-8534-4945-85FC-42C44414033F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{D25155BE-4EC8-44CF-8E49-734B0762443B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D25155BE-4EC8-44CF-8E49-734B0762443B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D25155BE-4EC8-44CF-8E49-734B0762443B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7D7B205-9EDB-4A51-A37A-BE7DAFDFC09F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D7B205-9EDB-4A51-A37A-BE7DAFDFC09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7D7B205-9EDB-4A51-A37A-BE7DAFDFC09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7D7B205-9EDB-4A51-A37A-BE7DAFDFC09F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBA4A681-8534-4945-85FC-42C44414033F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA4A681-8534-4945-85FC-42C44414033F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA4A681-8534-4945-85FC-42C44414033F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA4A681-8534-4945-85FC-42C44414033F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
