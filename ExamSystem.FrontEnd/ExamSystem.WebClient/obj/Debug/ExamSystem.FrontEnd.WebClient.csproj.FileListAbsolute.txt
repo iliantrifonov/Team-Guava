@@ -10,3 +10,9 @@ D:\Gemini\DEV\Akademy\Temp\team\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\Exa
 D:\Gemini\DEV\Akademy\Temp\team\ExamSystem.FrontEnd\ExamSystem.WebClient\obj\Debug\ExamSystem.FrontEnd.WebClient.csprojResolveAssemblyReference.cache
 D:\Gemini\DEV\Akademy\Temp\team\ExamSystem.FrontEnd\ExamSystem.WebClient\obj\Debug\ExamSystem.FrontEnd.WebClient.dll
 D:\Gemini\DEV\Akademy\Temp\team\ExamSystem.FrontEnd\ExamSystem.WebClient\obj\Debug\ExamSystem.FrontEnd.WebClient.pdb
+D:\GitHubProjects\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\obj\Debug\ExamSystem.FrontEnd.WebClient.dll
+D:\GitHubProjects\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\obj\Debug\ExamSystem.FrontEnd.WebClient.pdb
+D:\GitHubProjects\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\ExamSystem.FrontEnd.WebClient.dll.config
+D:\GitHubProjects\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\ExamSystem.FrontEnd.WebClient.dll
+D:\GitHubProjects\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\ExamSystem.FrontEnd.WebClient.pdb
+D:\GitHubProjects\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\obj\Debug\ExamSystem.FrontEnd.WebClient.csprojResolveAssemblyReference.cache

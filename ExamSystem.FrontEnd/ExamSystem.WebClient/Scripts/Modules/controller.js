@@ -7,10 +7,15 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
         function attachEvents() {
             $main.on('click', '#login-user', loginUser);
             $main.on('click', '#login-admin', loginAdmin);
-            $main.on('click', '#all-exams', renderAllExams)
+            $main.on('click', '#all-exams', renderAllExams);
+            $main.on('click', "#register-btn", switchToLoginPage);
         }
 
         function Controller() {
+        }
+
+        function switchToLoginPage() {
+            window.location.hash = '#/';
         }
 
         function loginUser(ev) {
@@ -54,5 +59,6 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
             attachEvents: attachEvents
         }
     })();
+
     return controller;
 });
