@@ -10,17 +10,6 @@
 
     public class ProblemDataModel
     {
-        public static Func<Problem, ProblemDataModel> GetModel()
-        {
-            return e => new ProblemDataModel()
-            {
-                Id = e.Id,
-                Name = e.Name,
-                DownloadPaths = e.DownloadPaths
-                    .Select(DownloadPathDataModel.GetModel()),
-            };
-        }
-
         public ProblemDataModel()
         {
             this.DownloadPaths = new HashSet<DownloadPathDataModel>();
@@ -31,5 +20,16 @@
         public string Name { get; set; }
 
         public virtual IEnumerable<DownloadPathDataModel> DownloadPaths { get; set; }
+
+        public static Func<Problem, ProblemDataModel> GetModel()
+        {
+            return e => new ProblemDataModel()
+            {
+                Id = e.Id,
+                Name = e.Name,
+                DownloadPaths = e.DownloadPaths
+                    .Select(DownloadPathDataModel.GetModel()),
+            };
+        }
     }
 }

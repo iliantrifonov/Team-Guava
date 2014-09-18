@@ -8,6 +8,15 @@
 
     public class DownloadPathDataModel
     {
+        public int Id { get; set; }
+
+        public string Message { get; set; }
+
+        public DateTime? AddDate { get; set; }
+
+        public string Link { get; set; }
+
+
         public static Func<DownloadPath, DownloadPathDataModel> GetModel()
         {
             return e => new DownloadPathDataModel()
@@ -28,13 +37,5 @@
                 Message = e.Message,
             };
         }
-
-        public int Id { get; set; }
-
-        public string Message { get; set; }
-
-        public DateTime? AddDate { get; set; }
-
-        public string Link { get; set; }
     }
 }

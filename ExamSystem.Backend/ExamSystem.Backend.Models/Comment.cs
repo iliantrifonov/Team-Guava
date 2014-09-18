@@ -13,5 +13,9 @@
         public DateTime? Date { get; set; }
 
         public virtual Problem Problem { get; set; }
+
+        public virtual Exam Exam { get; set; }
+
+        public Guid ExamId { get; set; }
     }
 }
