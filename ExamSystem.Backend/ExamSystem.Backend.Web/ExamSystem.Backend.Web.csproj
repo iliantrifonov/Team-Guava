@@ -229,11 +229,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\ExamsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProblemsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataModels\CommentsDataModel.cs" />
     <Compile Include="DataModels\DownloadPathDataModel.cs" />
+    <Compile Include="DataModels\ExamDataModel.cs" />
     <Compile Include="DataModels\ProblemDataModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
