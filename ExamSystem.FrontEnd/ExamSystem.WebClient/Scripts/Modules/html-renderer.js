@@ -15,9 +15,18 @@
             $('#exams-container').html(examUl);
         }
 
+        function renderOneExam(data) {
+            var $exam = $('<div>');
+            var template = '<a>{{{Name}}}</a><span>{{{StartDate}}}</span><span>{{{EndDate}}}</span>';
+            $exam.append(Mustache.to_html(template, data));
+
+            $('#exam-container').html($exam);
+        }
+
         return {
             renderUsername: renderUsername,
-            renderAllExam: renderAllExams
+            renderAllExam: renderAllExams,
+            renderOneExam: renderOneExam
         }
     })();
     return htmlRenderer;
