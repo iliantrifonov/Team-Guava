@@ -8,7 +8,10 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
             $main.on('click', '#login-user', loginUser);
             $main.on('click', '#login-admin', loginAdmin);
             $main.on('click', '#all-exams', renderAllExams);
-            $main.on('click', "#register-btn", registerUser());
+            $main.on('click', "#register-btn", registerUser);
+            $main.on('click', "#all-exams", renderAllExams);
+
+
         }
 
         function Controller() {
@@ -18,7 +21,7 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
             window.location.hash = '#/';
         }
 
-        function registerUser(){
+        function registerUser() {
             var $email = $('#email').val();
             var $password = $('#password').val();
             var $confirm = $('#confirm-password').val();
@@ -27,7 +30,7 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
                 ev.preventDefault();
                 return;
             }
-            persister.userPersister.register($email, $password);
+            persister.userPersister.register($email, $password, $confirm);
             switchToLoginPage();
         }
 
@@ -40,10 +43,12 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
                 return;
             }
 
-            persister.userPersister.login($email, $password);
-            window.location.hash = '#/UserHomepage';
-            htmlRenderer.renderUsername(persister.userPersister.getUserName());
-            renderAllExams();
+            persister.userPersister.login($email, $password).then(function () {
+
+                window.location.hash = '#/UserHomepage';
+                htmlRenderer.renderUsername(persister.userPersister.getUserName());
+                renderAllExams();
+            });
         }
 
         function loginAdmin(ev) {
@@ -57,12 +62,12 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
 
             persister.adminPersister.login($email, $password);
             window.location.hash = '#/AdminHomepage';
-            htmlRenderer.renderUsername(persister.adminPersister.getSessionKey());
+            htmlRenderer.renderUsername(persister.adminPersister.getUserName());
             renderAllExams();
         }
 
         function renderAllExams() {
-            var examsData = persister.getAllExams();
+            var examsData = persister.userPersister.getAllExams();
             htmlRenderer.renderAllExam(examsData);
         }
 
