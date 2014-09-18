@@ -9,6 +9,9 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
             $main.on('click', '#login-admin', loginAdmin);
             $main.on('click', '#all-exams', renderAllExams);
             $main.on('click', "#register-btn", registerUser);
+            $main.on('click', "#add-exam", addExam);
+            $main.on('click', "#add-problem", addProblem);
+            $main.on('click', "ul li a", showComments);
 
         }
 
@@ -61,6 +64,28 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
             window.location.hash = '#/AdminHomepage';
             htmlRenderer.renderUsername(persister.adminPersister.getUserName());
             renderAllExams();
+        }
+
+        function addExam(){
+            var $name = $('#exam-name').val();
+            var $start = $('#start-time').val();
+            var $end = $('#end-time').val();
+            persister.userPersister.addExam($name, $start, $end).then(function(){
+                renderAllExams();
+            })
+        }
+
+        function addProblem(){
+            var $name = $('#problem-name').val();
+            var $examId = $('#exam-id').val();
+            persister.userPersister.addProblem($name, $examId).then(function(){
+                renderAllExams();
+            })
+        }
+
+        function showComments(){
+            var examId = $('.exam-id').html();
+            persister.userPersister.getComments(examId);
         }
 
         function renderAllExams() {

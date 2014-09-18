@@ -6,7 +6,21 @@
 
         function renderAllExams(data) {
             var examUl = $('<ul>');
-            var template = '<li><a>{{{Name}}}</a><p>StartTime: {{{StartTime}}}</p><p>EndTime: {{{EndTime}}}</p></li>';
+            var template = '<li><a href="#">{{{Name}}}</a><p>StartTime: {{{StartTime}}}</p><p>EndTime: {{{EndTime}}}</p>' +
+                '<a class="exam-id" href="#">{{{Id}}}</a></li>';
+
+            for (var i = 0; i < data.length; i++) {
+                examUl.append(Mustache.to_html(template, data[i]));
+                console.log(data[i].Id);
+            }
+
+            $('#exams-container').html(examUl);
+        }
+
+        function renderAllComments(data){
+            var examUl = $('<ul>');
+            var template = '<li><p>{{{Text}}}</p><p>Date: {{{Date}}}</p>' +
+                '<a href="#">{{{Id}}}</a></li>';
 
             for (var i = 0; i < data.length; i++) {
                 examUl.append(Mustache.to_html(template, data[i]));
@@ -17,7 +31,8 @@
 
         return {
             renderUsername: renderUsername,
-            renderAllExam: renderAllExams
+            renderAllExam: renderAllExams,
+            renderAllComments: renderAllComments
         }
     })();
     return htmlRenderer;
