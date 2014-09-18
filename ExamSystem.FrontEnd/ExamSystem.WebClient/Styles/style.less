@@ -10,9 +10,9 @@ body{
 }
 
 header{
-    background-color: green;
+    background-color: paleturquoise;
     height: 80px;
-    color: firebrick;
+    color: blue;
     font-family: 'Times New Roman';
     font-size: 4em;
     text-align: center;
@@ -31,8 +31,36 @@ header{
     font-size: 1.2em;
 }
 
+ul{
+    list-style-type:none;
+}
+
 a {
     font-size: 2em;
     margin: 10px;
+    color:blue;
+
+    &:hover{
+        color:darkblue;
+    }
+}
+
+#exams-container{
+    border:1px solid gray;
+    border-radius:10px;
+    float:right;
+    position:absolute;
+    top:130px;
+    left:600px;
+    margin:10px;
+
+    li{
+        text-align:center;
+        li{
+            a{
+                color:blue;
+            }
+        }
+    }
 }
 

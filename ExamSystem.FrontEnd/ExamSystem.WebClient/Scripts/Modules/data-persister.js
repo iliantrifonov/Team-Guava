@@ -156,8 +156,6 @@
             getAllExams: function () {
                 return httpRequester.get().getJSON(this.serviceUrl + 'api/Exams/All').then(function (data) {
                     htmlRenderer.renderAllExam(data);
-
-                    //return data;
                 }, function (err) {
                     console.log(err.responseText); // to handle the error better!
                 });

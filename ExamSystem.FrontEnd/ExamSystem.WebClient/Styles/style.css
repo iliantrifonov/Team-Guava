@@ -15,9 +15,9 @@ body {
   width: 75%;
 }
 header {
-  background-color: green;
+  background-color: paleturquoise;
   height: 80px;
-  color: firebrick;
+  color: blue;
   font-family: 'Times New Roman';
   font-size: 4em;
   text-align: center;
@@ -35,8 +35,30 @@ header {
   border-radius: 5px;
   font-size: 1.2em;
 }
+ul {
+  list-style-type: none;
+}
 a {
   font-size: 2em;
   margin: 10px;
+  color: blue;
+}
+a:hover {
+  color: darkblue;
+}
+#exams-container {
+  border: 1px solid gray;
+  border-radius: 10px;
+  float: right;
+  position: absolute;
+  top: 130px;
+  left: 600px;
+  margin: 10px;
+}
+#exams-container li {
+  text-align: center;
+}
+#exams-container li li a {
+  color: blue;
 }
 /*# sourceMappingURL=style.css.map */
