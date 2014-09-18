@@ -27,6 +27,7 @@
             }
 
             $('#exams-container').html(examUl);
+           
         }
 
         return {

@@ -163,9 +163,9 @@
             },
             addExam: function(name, start, end){
                 return httpRequester.get().postJSON(this.serviceUrl + 'api/Exams/Add', {
-                    name: name,
-                    startTime: start,
-                    endTime: end
+                    Name: name,
+                    StartTime: start,
+                    EndTime: end
                 }).then(function (data) {
                     alert('Exam added');
                 }, function (err) {

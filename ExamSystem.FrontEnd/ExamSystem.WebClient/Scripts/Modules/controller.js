@@ -12,6 +12,7 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
             $main.on('click', "#add-exam", addExam);
             $main.on('click', "#add-problem", addProblem);
             $main.on('click', "ul li a", showComments);
+            $main.on('click', "#add-exam", addExam);
 
         }
 
