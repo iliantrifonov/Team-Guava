@@ -44,11 +44,23 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
                 return;
             }
 
-            persister.userPersister.login($email, $password).then(function () {
-                window.location.hash = '#/UserHomepage';
-                htmlRenderer.renderUsername(persister.userPersister.getUserName());
-                renderAllExams();
+            $.ajax({url: "http://localhost:1945/Token",
+                type: "POST",
+                data: "userName=" + $email + "&password=" + $password + "&grant_type=password",
+                success: function (data) {
+                    localStorage.setItem("token", data.access_token);
+                    window.location.hash = '#/UserHomepage';
+                    renderAllExams();
+                },
+                error: function (errorData) {
+                }
             });
+
+//            persister.userPersister.login($email, $password).then(function () {
+//                window.location.hash = '#/UserHomepage';
+//                htmlRenderer.renderUsername(persister.userPersister.getUserName());
+//                renderAllExams();
+//            });
         }
 
         function loginAdmin(ev) {
