@@ -31,7 +31,7 @@
 //            AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
 
 //            PubnubProxy proxy = null;
-            
+
 //            Console.WriteLine("HINT: TO TEST RE-CONNECT AND CATCH-UP,");
 //            Console.WriteLine("      DISCONNECT YOUR MACHINE FROM NETWORK/INTERNET AND ");
 //            Console.WriteLine("      RE-CONNECT YOUR MACHINE AFTER SOMETIME.");
@@ -180,7 +180,7 @@
 //            Console.ForegroundColor = ConsoleColor.Blue;
 //            if (subscribeTimeout > 0)
 //            {
-//                Console.WriteLine("Subscribe Timeout = {0}",subscribeTimeout);
+//                Console.WriteLine("Subscribe Timeout = {0}", subscribeTimeout);
 //                pubnub.SubscribeTimeout = subscribeTimeout;
 //            }
 //            else
@@ -278,7 +278,7 @@
 //                    string proxyUsername = Console.ReadLine();
 //                    Console.WriteLine("ENTER password for proxy server authentication.");
 //                    string proxyPassword = Console.ReadLine();
-                    
+
 //                    proxy = new PubnubProxy();
 //                    proxy.ProxyServer = proxyServer;
 //                    proxy.ProxyPort = port;
@@ -321,7 +321,7 @@
 //            Console.WriteLine("Default = N  ");
 //            string displayErrMessage = Console.ReadLine();
 //            Console.ForegroundColor = ConsoleColor.Blue;
-//            if (displayErrMessage.Trim().ToLower() == "y" )
+//            if (displayErrMessage.Trim().ToLower() == "y")
 //            {
 //                showErrorMessageSegments = true;
 //                Console.WriteLine("ErrorCallback messages will  be displayed");
@@ -353,7 +353,7 @@
 
 
 //            bool exitFlag = false;
-//            string channel="";
+//            string channel = "";
 //            int currentUserChoice = 0;
 //            string userinput = "";
 //            Console.WriteLine("");
@@ -406,7 +406,7 @@
 //                        channel = Console.ReadLine();
 
 //                        Console.ForegroundColor = ConsoleColor.Blue;
-//                        Console.WriteLine(string.Format("Channel = {0}",channel));
+//                        Console.WriteLine(string.Format("Channel = {0}", channel));
 //                        Console.ResetColor();
 //                        Console.WriteLine();
 
@@ -419,7 +419,7 @@
 //                        channel = Console.ReadLine();
 
 //                        Console.ForegroundColor = ConsoleColor.Blue;
-//                        Console.WriteLine(string.Format("Channel = {0}",channel));
+//                        Console.WriteLine(string.Format("Channel = {0}", channel));
 //                        Console.ResetColor();
 
 //                        /* TO TEST SMALL TEXT PUBLISH ONLY */
@@ -440,7 +440,7 @@
 //                        } while (enteredKey.Key != ConsoleKey.Enter);
 //                        string publishMsg = publishBuilder.ToString();
 //                        #endregion
-                        
+
 //                        Console.WriteLine("Running publish()");
 
 //                        double doubleData;
@@ -483,7 +483,7 @@
 //                        channel = Console.ReadLine();
 
 //                        Console.ForegroundColor = ConsoleColor.Blue;
-//                        Console.WriteLine(string.Format("Presence Channel = {0}",channel));
+//                        Console.WriteLine(string.Format("Presence Channel = {0}", channel));
 //                        Console.ResetColor();
 //                        Console.WriteLine();
 
@@ -496,7 +496,7 @@
 //                        channel = Console.ReadLine();
 
 //                        Console.ForegroundColor = ConsoleColor.Blue;
-//                        Console.WriteLine(string.Format("Channel = {0}",channel));
+//                        Console.WriteLine(string.Format("Channel = {0}", channel));
 //                        Console.ResetColor();
 //                        Console.WriteLine();
 
@@ -511,7 +511,7 @@
 //                        channel = Console.ReadLine();
 
 //                        Console.ForegroundColor = ConsoleColor.Blue;
-//                        Console.WriteLine(string.Format("Channel = {0}",channel));
+//                        Console.WriteLine(string.Format("Channel = {0}", channel));
 //                        Console.ResetColor();
 //                        Console.WriteLine();
 
@@ -522,7 +522,7 @@
 //                            showUUID = false;
 //                        }
 //                        Console.ForegroundColor = ConsoleColor.Blue;
-//                        Console.WriteLine(string.Format("Show UUID = {0}",showUUID));
+//                        Console.WriteLine(string.Format("Show UUID = {0}", showUUID));
 //                        Console.ResetColor();
 //                        Console.WriteLine();
 
@@ -545,7 +545,7 @@
 //                        channel = Console.ReadLine();
 
 //                        Console.ForegroundColor = ConsoleColor.Blue;
-//                        Console.WriteLine(string.Format("Channel = {0}",channel));
+//                        Console.WriteLine(string.Format("Channel = {0}", channel));
 //                        Console.ResetColor();
 //                        Console.WriteLine();
 
@@ -557,7 +557,7 @@
 //                        channel = Console.ReadLine();
 
 //                        Console.ForegroundColor = ConsoleColor.Blue;
-//                        Console.WriteLine(string.Format("Channel = {0}",channel));
+//                        Console.WriteLine(string.Format("Channel = {0}", channel));
 //                        Console.ResetColor();
 //                        Console.WriteLine();
 
@@ -585,7 +585,7 @@
 //                    case "11":
 //                        Console.WriteLine("Enabling Network Connection (yes internet)");
 //                        Console.ForegroundColor = ConsoleColor.Red;
-//                        Console.WriteLine("Stopping Simulation of Internet non-availability");  
+//                        Console.WriteLine("Stopping Simulation of Internet non-availability");
 //                        Console.ResetColor();
 //                        pubnub.DisableSimulateNetworkFailForTestingOnly();
 //                        break;
@@ -606,7 +606,7 @@
 //                        if (grantTimeLimitInSeconds == 0) grantTimeLimitInSeconds = 1440;
 
 //                        Console.ForegroundColor = ConsoleColor.Blue;
-//                        Console.WriteLine(string.Format("Channel = {0}",channel));
+//                        Console.WriteLine(string.Format("Channel = {0}", channel));
 //                        Console.WriteLine(string.Format("Read Access = {0}", read.ToString()));
 //                        Console.WriteLine(string.Format("Write Access = {0}", write.ToString()));
 //                        Console.WriteLine(string.Format("Grant Access Time Limit = {0}", grantTimeLimitInSeconds.ToString()));
@@ -626,7 +626,7 @@
 //                        Console.WriteLine();
 
 //                        Console.WriteLine("Running PamAudit()");
-//                        pubnub.AuditAccess<string>(channel,DisplayReturnMessage, DisplayErrorMessage);
+//                        pubnub.AuditAccess<string>(channel, DisplayReturnMessage, DisplayErrorMessage);
 //                        break;
 //                    case "14":
 //                        Console.WriteLine("Enter CHANNEL name for PAM Revoke");
@@ -638,7 +638,7 @@
 //                        Console.WriteLine();
 
 //                        Console.WriteLine("Running PamRevoke()");
-//                        pubnub.GrantAccess<string>(channel, false,false, DisplayReturnMessage, DisplayErrorMessage);
+//                        pubnub.GrantAccess<string>(channel, false, false, DisplayReturnMessage, DisplayErrorMessage);
 //                        break;
 //                    case "15":
 //                        Console.WriteLine("Enter CHANNEL name for PAM Grant Presence.");
@@ -704,18 +704,18 @@
 
 //                        break;
 //                    case "19":
-//                        Console.WriteLine("Enabling simulation of Sleep/Suspend Mode");  
+//                        Console.WriteLine("Enabling simulation of Sleep/Suspend Mode");
 //                        pubnub.EnableMachineSleepModeForTestingOnly();
-//                        Console.ForegroundColor = ConsoleColor.Red;  
+//                        Console.ForegroundColor = ConsoleColor.Red;
 //                        Console.WriteLine("Machine Sleep Mode simulation activated");
-//                        Console.ResetColor();  
+//                        Console.ResetColor();
 //                        break;
 //                    case "20":
-//                        Console.WriteLine("Disabling simulation of Sleep/Suspend Mode");  
+//                        Console.WriteLine("Disabling simulation of Sleep/Suspend Mode");
 //                        pubnub.DisableMachineSleepModeForTestingOnly();
-//                        Console.ForegroundColor = ConsoleColor.Red;  
-//                        Console.WriteLine("Simulation going to awake mode");  
-//                        Console.ResetColor();  
+//                        Console.ForegroundColor = ConsoleColor.Red;
+//                        Console.WriteLine("Simulation going to awake mode");
+//                        Console.ResetColor();
 //                        break;
 //                    case "21":
 //                        Console.WriteLine("Enter Presence Heartbeat in seconds");
@@ -920,14 +920,14 @@
 //                        Console.WriteLine();
 
 //                        Console.WriteLine("Running Global HereNow()");
-//                        pubnub.GlobalHereNow<string>(globalHereNowShowUUID, globalHereNowIncludeUserState,DisplayReturnMessage, DisplayErrorMessage);
+//                        pubnub.GlobalHereNow<string>(globalHereNowShowUUID, globalHereNowIncludeUserState, DisplayReturnMessage, DisplayErrorMessage);
 //                        break;
 //                    case "30":
 //                        Console.WriteLine("ENTER UUID.");
 //                        string sessionUUID = Console.ReadLine();
 //                        pubnub.ChangeUUID(sessionUUID);
 //                        Console.ForegroundColor = ConsoleColor.Blue;
-//                        Console.WriteLine("UUID = {0}",pubnub.SessionUUID);
+//                        Console.WriteLine("UUID = {0}", pubnub.SessionUUID);
 //                        Console.ResetColor();
 //                        break;
 //                    default:
@@ -1167,8 +1167,8 @@
 //            if (pubnubError.PubnubWebRequest != null)
 //            {
 //                //Captured Web Request details
-//                Console.WriteLine("<HTTP WEB REQUEST>: {0}", pubnubError.PubnubWebRequest.RequestUri.ToString()); 
-//                Console.WriteLine("<HTTP WEB REQUEST - HEADERS>: {0}", pubnubError.PubnubWebRequest.Headers.ToString()); 
+//                Console.WriteLine("<HTTP WEB REQUEST>: {0}", pubnubError.PubnubWebRequest.RequestUri.ToString());
+//                Console.WriteLine("<HTTP WEB REQUEST - HEADERS>: {0}", pubnubError.PubnubWebRequest.Headers.ToString());
 //            }
 //            if (pubnubError.PubnubWebResponse != null)
 //            {
