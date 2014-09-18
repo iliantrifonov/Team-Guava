@@ -89,6 +89,7 @@
     <Content Include="Scripts\Modules\http-requester.js" />
     <Content Include="Styles\style.css" />
     <Content Include="Views\AdminHomepage.html" />
+    <Content Include="Views\ExamPage.html" />
     <Content Include="Views\Register.html" />
     <Content Include="Views\UserHomepage.html" />
     <Content Include="Views\Welcome.html" />
