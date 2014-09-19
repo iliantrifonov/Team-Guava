@@ -52,8 +52,7 @@
             renderUsername: renderUsername,
             renderAllExam: renderAllExams,
             renderAllComments: renderAllComments,
-            renderAddComment: renderAddComment
-            renderAllComments: renderAllComments,
+            renderAddComment: renderAddComment,
             renderAllProblems: renderAllProblems
         }
     })();
