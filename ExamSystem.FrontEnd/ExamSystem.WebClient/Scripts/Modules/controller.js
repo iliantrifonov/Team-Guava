@@ -1,8 +1,10 @@
 ﻿/// <reference path="data-persister.js" />
 define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htmlRenderer) {
     var controller = (function () {
-        var persister = DataPersister.getDataPersister('http://localhost:1945/');
         var $main = $('#main');
+        var sourceUrl = 'http://localhost:1945/';
+        var persister = DataPersister.getDataPersister(sourceUrl);
+
 
         function attachEvents() {
             $main.on('click', '#login-user', loginUser);
@@ -35,7 +37,7 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
                 return;
             }
 
-            $.ajax({url: "http://localhost:1945/api/Account/Register",
+            $.ajax({url: sourceUrl + "api/Account/Register",
                 type: "POST",
                 data: "Email=" + $email + "&Password=" + $password + "&ConfirmPassword=" + $confirm,
                 contentType:"application/x-www-form-urlencoded",
@@ -60,7 +62,7 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
                 return;
             }
 
-            $.ajax({url: "http://localhost:1945/Token",
+            $.ajax({url: sourceUrl + "Token",
                 type: "POST",
                 data: "userName=" + $email + "&password=" + $password + "&grant_type=password",
                 success: function (data) {
@@ -71,12 +73,6 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
                 error: function (errorData) {
                 }
             });
-
-//            persister.userPersister.login($email, $password).then(function () {
-//                window.location.hash = '#/UserHomepage';
-//                htmlRenderer.renderUsername(persister.userPersister.getUserName());
-//                renderAllExams();
-//            });
         }
 
         function loginAdmin(ev) {
@@ -88,7 +84,7 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
                 return;
             }
 
-            $.ajax({url: "http://localhost:1945/Token",
+            $.ajax({url: sourceUrl + "Token",
                 type: "POST",
                 data: "userName=" + $email + "&password=" + $password + "&grant_type=password",
                 success: function (data) {
@@ -105,7 +101,7 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
             var $name = $('#exam-name').val();
             var $start = $('#start-time').val().toString();
             var $end = $('#end-time').val().toString();
-            $.ajax({url: "http://localhost:1945/api/Exams/Add",
+            $.ajax({url: sourceUrl + "api/Exams/Add",
                 type: "POST",
                 data: "name=" + $name + "&startTime=" + $start + "&endTime=" + $end,
                 contentType:"application/x-www-form-urlencoded",
@@ -122,7 +118,7 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
         function addProblem(){
             var $name = $('#problem-name').val();
             var $examId = $('#exam-id').val();
-            $.ajax({url: "http://localhost:1945/api/Problems/Add",
+            $.ajax({url: sourceUrl + "api/Problems/Add",
                 type: "POST",
                 data: "name=" + $name + "&examId=" + $examId,
                 contentType:"application/x-www-form-urlencoded",
@@ -139,7 +135,7 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
         function showProblems(){
             var $examId = $('#exam-link-id').html();
 
-            $.ajax("http://localhost:1945/api/Problems/All/?ExamID=" + $examId)
+            $.ajax(sourceUrl + "api/Problems/All/?ExamID=" + $examId)
                 .then(function (data) {
                     htmlRenderer.renderAllProblems(data);
             });
@@ -152,7 +148,7 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
         function sendComment(){
             var $text = $('#text').val();
             var $examId = $('.exam-id').html();
-            $.ajax({url: "http://localhost:1945/api/Comments/Add",
+            $.ajax({url: sourceUrl + "api/Comments/Add",
                 type: "POST",
                 data: "text=" + $text + "&ExamId=" + $examId,
                 contentType:"application/x-www-form-urlencoded",
@@ -177,12 +173,12 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
         }
 
         function sendFile(){
-            //var $file = $.attr("[name*='file']")[0].val();
+            //var $file = $("#file").file[0];
             var $message = $('#message').val();
             var $problemId = $('#problem-id').html();
             var formData = new FormData($('form')[0]);
             $.ajax({
-                url: 'http://localhost:1945/api/DownloadPath/Add?message='+ $message + '&problemid=' + $problemId,  //Server script to process data
+                url: sourceUrl + 'api/DownloadPath/Add?message='+ $message + '&problemid=' + $problemId,  //Server script to process data
                 type: 'POST',
                 xhr: function() {  // Custom XMLHttpRequest
                     var myXhr = $.ajaxSettings.xhr();
