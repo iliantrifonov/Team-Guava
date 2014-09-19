@@ -13,3 +13,5 @@
 /ExamSystem.Backend/ExamSystem.Backend.Web/obj
 /ExamSystem.Backend/*.jmconfig
 /ExamSystem.Backend/AppHarbor.v12.suo
+/ExamSystem.Backend/ExamSystem.Backend.DropboxApi/bin
+/ExamSystem.Backend/ExamSystem.Backend.DropboxApi/obj

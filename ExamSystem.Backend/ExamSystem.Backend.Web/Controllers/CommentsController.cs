@@ -10,13 +10,17 @@
     using ExamSystem.Backend.Data;
     using ExamSystem.Backend.Web.DataModels;
     using ExamSystem.Backend.Models;
+    using ExamSystem.Backend.Web.PubnubCore;
 
     public class CommentsController : BaseApiController
     {
-        public CommentsController(IExamSystemData data)
+        INotificationService notification;
+
+        public CommentsController(IExamSystemData data, 
+        INotificationService notification)
             : base(data)
         {
-
+            this.notification = notification;
         }
 
         [HttpGet]
@@ -99,6 +103,15 @@
             catch (Exception)
             {
                 return InternalServerError();
+            }
+
+            try
+            {
+                this.notification.Send(exam.Id.ToString());
+            }
+            catch (Exception)
+            {
+                
             }
 
             return Ok(commentForDb.Id);
