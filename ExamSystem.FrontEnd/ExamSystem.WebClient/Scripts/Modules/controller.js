@@ -120,7 +120,8 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
         }
 
         function showProblems(){
-
+            var examId = $('#exams-container > ul > li').children('a.exam-id').html();
+            persister.userPersister.getAllProblems(examId);
         }
 
         function showComments(){

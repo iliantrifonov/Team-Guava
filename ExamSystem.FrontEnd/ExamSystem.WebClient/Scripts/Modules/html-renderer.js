@@ -30,10 +30,22 @@
            
         }
 
+        function renderAllProblems(data) {
+            var $problemsUl = $('<ul>');
+            var template = '<li><p>{{{Name}}}</p><</li>';
+
+            for (var i = 0; i < data.length; i++) {
+                $problemsUl.append(Mustache.to_html(template, data[i]));
+            }
+
+            $('#exams-container').html($problemsUl);
+        }
+
         return {
             renderUsername: renderUsername,
             renderAllExam: renderAllExams,
-            renderAllComments: renderAllComments
+            renderAllComments: renderAllComments,
+            renderAllProblems: renderAllProblems
         }
     })();
     return htmlRenderer;
