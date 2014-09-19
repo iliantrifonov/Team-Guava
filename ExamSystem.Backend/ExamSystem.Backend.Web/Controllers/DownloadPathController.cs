@@ -14,7 +14,7 @@
     using ExamSystem.Backend.Data;
     using ExamSystem.Backend.DropboxApi;
     using ExamSystem.Backend.Models;
-using System.Web;
+    using System.Web;
 
     public class DownloadPathController : BaseApiController
     {
@@ -29,13 +29,13 @@ using System.Web;
 
         //[Authorize(Roles="Admin")]
         [HttpPost]
-        public async Task<HttpResponseMessage> Add(string message, int problemId)
+        public async Task<IHttpActionResult> Add(string message, int problemId)
         {
             var problem = this.data.Problems.Find(problemId);
 
             if (problem == null)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
+                return NotFound();
             }
 
             if (Request.Content.IsMimeMultipartContent())
@@ -47,7 +47,7 @@ using System.Web;
                 {
                     if (string.IsNullOrEmpty(fileData.Headers.ContentDisposition.FileName))
                     {
-                        return Request.CreateResponse(HttpStatusCode.NotAcceptable, "This request is not properly formatted");
+                        return BadRequest();
                     }
 
                     string fileName = fileData.Headers.ContentDisposition.FileName;
@@ -84,17 +84,17 @@ using System.Web;
                     }
                     catch (Exception)
                     {
-                        Request.CreateResponse(HttpStatusCode.InternalServerError);
+                        return BadRequest();
                     }
 
-                    return Request.CreateResponse(HttpStatusCode.OK, downloadPath);
+                    return Ok(downloadPath.Link);
                 }
 
-                return Request.CreateResponse(HttpStatusCode.OK);
+                return Ok();
             }
             else
             {
-                return Request.CreateResponse(HttpStatusCode.NotAcceptable, "This request is not properly formatted");
+                return BadRequest();
             }
         }
     }
