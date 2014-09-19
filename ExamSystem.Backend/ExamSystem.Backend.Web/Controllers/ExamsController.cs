@@ -9,6 +9,7 @@
 
     using ExamSystem.Backend.Data;
     using ExamSystem.Backend.Web.DataModels;
+    using ExamSystem.Backend.Models;
 
     public class ExamsController : BaseApiController
     {
@@ -16,6 +17,27 @@
             : base(data)
         {
 
+        }
+
+        [HttpGet]
+        public IHttpActionResult AllProblemIds(string examId)
+        {
+            // TODO: Check if the student is registered for the exam
+            var idAsGuid = new Guid(examId);
+
+            var exam = this.data.Exams.All()
+                .Where(e => e.Id == idAsGuid)
+                .FirstOrDefault();
+
+            if (exam == null)
+            {
+                return NotFound();
+            }
+
+            var problemIds = exam.Problems.AsQueryable()
+                .Select(p => p.Id);
+
+            return Ok(problemIds);
         }
 
         [HttpGet]
@@ -82,6 +104,78 @@
                 .Select(ExamDataModel.GetModel);
 
             return Ok(exams);
+        }
+
+        [HttpPost]
+        public IHttpActionResult Add(ExamDataModel model)
+        {
+            if (model == null || !ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var exam = new Exam()
+            {
+                Name = model.Name,
+                StartTime = model.StartTime,
+                EndTime = model.EndTime
+            };
+
+            this.data.Exams.Add(exam);
+
+            try
+            {
+                this.data.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return InternalServerError();
+            }
+
+            // TODO: Add location
+            return Ok(exam.Id);
+        }
+
+        [HttpPut]
+        public IHttpActionResult AddUser(ExamDataModelForAdding model)
+        {
+            if (model == null || !ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            Guid examIdAsGuid;
+            Guid userIdAsGuid;
+            try 
+	        {	  
+                examIdAsGuid = new Guid(model.ExamId);
+                userIdAsGuid = new Guid(model.UserId);
+	        }
+	        catch (Exception)
+	        {
+		        return BadRequest();
+	        }
+
+            var exam = this.data.Exams.Find(examIdAsGuid);
+            var user = this.data.Users.Find(userIdAsGuid);
+
+            if (exam == null || user == null)
+            {
+                return NotFound();
+            }
+
+            exam.Users.Add(user);
+
+            try
+            {
+                this.data.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return InternalServerError();
+            }
+
+            return Ok();
         }
     }
 }

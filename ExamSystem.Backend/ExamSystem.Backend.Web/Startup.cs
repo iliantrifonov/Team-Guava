@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Web.Http;
 using System.Linq;
 using System.Reflection;
+using ExamSystem.Backend.Web.PubnubCore;
 
 [assembly: OwinStartup(typeof(ExamSystem.Backend.Web.Startup))]
 
@@ -40,6 +41,8 @@ namespace ExamSystem.Backend.Web
                     c => new ExamSystemDbContext());
 
             kernel.Bind<IUserIdProvider>().To<AspNetUserIdProvider>();
+
+            kernel.Bind<INotificationService>().To<NotificationService>();
         }
     }
 }

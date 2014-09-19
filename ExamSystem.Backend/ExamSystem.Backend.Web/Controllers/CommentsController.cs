@@ -20,6 +20,22 @@
         }
 
         [HttpGet]
+        public IHttpActionResult GetById(int id)
+        {
+            var comment = this.data.Comments.All()
+                .Where(c => c.Id == id)
+                .Select(CommentsDataModel.GetModel)
+                .FirstOrDefault();
+
+            if (comment == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(comment);
+        }
+
+        [HttpGet]
         public IHttpActionResult All(string examId)
         {
             if (string.IsNullOrWhiteSpace(examId) || examId.Length < 36)
@@ -76,7 +92,14 @@
 
             exam.Comments.Add(commentForDb);
 
-            this.data.SaveChanges();
+            try
+            {
+                this.data.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return InternalServerError();
+            }
 
             return Ok(commentForDb.Id);
         }
