@@ -11,7 +11,8 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
             $main.on('click', "#register-btn", registerUser);
             $main.on('click', "#add-exam", addExam);
             $main.on('click', "#add-problem", addProblem);
-            $main.on('click', "ul li a", showComments);
+            $main.on('click', ".exam-name", showProblems);
+            $main.on('click', ".exam-id", showComments);
             $main.on('click', "#add-exam", addExam);
 
         }
@@ -104,9 +105,22 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
         function addProblem(){
             var $name = $('#problem-name').val();
             var $examId = $('#exam-id').val();
-            persister.userPersister.addProblem($name, $examId).then(function(){
-                renderAllExams();
+            $.ajax({url: "http://localhost:1945/api/Problems/Add",
+                type: "POST",
+                data: "name=" + $name + "&examId=" + $examId,
+                contentType:"application/x-www-form-urlencoded",
+                success: function (data) {
+                    alert('Problem Added');
+                    window.location.hash = '#/UserHomepage';
+                    renderAllExams();
+                },
+                error: function (errorData) {
+                }
             })
+        }
+
+        function showProblems(){
+
         }
 
         function showComments(){
