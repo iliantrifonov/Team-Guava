@@ -15,7 +15,6 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
             $main.on('click', ".exam-id", showComments);
             $main.on('click', "#add-comment", addComment);
             $main.on('click', "#send", sendComment);
-            $main.on('click', "#add-exam", addExam);
 
         }
 
@@ -104,11 +103,20 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
 
         function addExam(){
             var $name = $('#exam-name').val();
-            var $start = $('#start-time').val();
-            var $end = $('#end-time').val();
-            persister.userPersister.addExam($name, $start, $end).then(function(){
-                renderAllExams();
-            })
+            var $start = $('#start-time').val().toString();
+            var $end = $('#end-time').val().toString();
+            $.ajax({url: "http://localhost:1945/api/Exams/Add",
+                type: "POST",
+                data: "name=" + $name + "&startTime=" + $start + "&endTime=" + $end,
+                contentType:"application/x-www-form-urlencoded",
+                success: function (data) {
+                    alert('Exam added');
+                    window.location.hash = '#/AdminHomepage';
+                    renderAllExams();
+                },
+                error: function (errorData) {
+                }
+            });
         }
 
         function addProblem(){
