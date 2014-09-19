@@ -39,7 +39,7 @@
 
         function renderAllProblems(data) {
             var $problemsUl = $('<ul>');
-            var template = '<li><p>{{{Name}}}</p><</li>';
+            var template = '<li><p>{{{Name}}}</p></li>';
 
             for (var i = 0; i < data.length; i++) {
                 $problemsUl.append(Mustache.to_html(template, data[i]));
