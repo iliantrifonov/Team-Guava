@@ -40,7 +40,8 @@ using System.Web;
 
             if (Request.Content.IsMimeMultipartContent())
             {
-                var streamProvider = new MultipartFormDataStreamProvider(Path.Combine(StoragePath, "Upload"));
+                var path = Path.GetTempPath();
+                var streamProvider = new MultipartFormDataStreamProvider(path);
                 await Request.Content.ReadAsMultipartAsync(streamProvider);
                 foreach (MultipartFileData fileData in streamProvider.FileData)
                 {
@@ -74,14 +75,6 @@ using System.Web;
                         Link = fileUrl,
                         Message = message,
                     };
-                    try
-                    {
-                        File.Delete(finalPath);
-                    }
-                    catch (Exception)
-                    {
-                        
-                    }
 
                     problem.DownloadPaths.Add(downloadPath);
 
