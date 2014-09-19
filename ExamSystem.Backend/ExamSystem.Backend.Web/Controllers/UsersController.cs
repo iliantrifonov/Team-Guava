@@ -17,6 +17,7 @@
 
         }
 
+        //[Authorize(Roles = "Admin")]
         [HttpGet]
         public IHttpActionResult All()
         {

@@ -64,6 +64,7 @@
             return Ok(comments);
         }
 
+        //[Authorize(Roles="Admin")]
         [HttpPost]
         public IHttpActionResult Add([FromBody]CommentsDataModel comment)
         {

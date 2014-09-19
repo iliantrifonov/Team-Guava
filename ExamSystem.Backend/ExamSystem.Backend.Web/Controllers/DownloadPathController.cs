@@ -26,6 +26,7 @@
             this.dropbox = new DropBoxCloudConnector();
         }
 
+        //[Authorize(Roles="Admin")]
         [HttpPost]
         public async Task<HttpResponseMessage> Add(string message, int problemId)
         {

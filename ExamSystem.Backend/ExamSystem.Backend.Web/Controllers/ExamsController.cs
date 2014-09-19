@@ -106,6 +106,7 @@
             return Ok(exams);
         }
 
+        //[Authorize(Roles="Admin")]
         [HttpPost]
         public IHttpActionResult Add(ExamDataModel model)
         {
@@ -136,6 +137,7 @@
             return Ok(exam.Id);
         }
 
+        //[Authorize(Roles = "Admin")]
         [HttpPut]
         public IHttpActionResult AddUser(ExamDataModelForAdding model)
         {

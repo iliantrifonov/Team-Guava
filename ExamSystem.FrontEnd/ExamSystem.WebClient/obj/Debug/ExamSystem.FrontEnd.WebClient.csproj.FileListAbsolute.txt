@@ -17,3 +17,10 @@ D:\GitHubProjects\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\ExamSy
 D:\GitHubProjects\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\ExamSystem.FrontEnd.WebClient.pdb
 D:\GitHubProjects\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\obj\Debug\ExamSystem.FrontEnd.WebClient.csprojResolveAssemblyReference.cache
 D:\GitHubProjects\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\Newtonsoft.Json.dll
+C:\Users\Nikki\Desktop\Guava\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\ExamSystem.FrontEnd.WebClient.dll.config
+C:\Users\Nikki\Desktop\Guava\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\ExamSystem.FrontEnd.WebClient.dll
+C:\Users\Nikki\Desktop\Guava\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\ExamSystem.FrontEnd.WebClient.pdb
+C:\Users\Nikki\Desktop\Guava\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\bin\Newtonsoft.Json.dll
+C:\Users\Nikki\Desktop\Guava\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\obj\Debug\ExamSystem.FrontEnd.WebClient.csprojResolveAssemblyReference.cache
+C:\Users\Nikki\Desktop\Guava\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\obj\Debug\ExamSystem.FrontEnd.WebClient.dll
+C:\Users\Nikki\Desktop\Guava\Team-Guava\ExamSystem.FrontEnd\ExamSystem.WebClient\obj\Debug\ExamSystem.FrontEnd.WebClient.pdb

@@ -62,6 +62,7 @@
             return Ok(problem);
         }
 
+        //[Authorize(Roles="Admin")]
         [HttpPost]
         public IHttpActionResult Add([FromBody]ProblemDataModelForAdding model)
         {
