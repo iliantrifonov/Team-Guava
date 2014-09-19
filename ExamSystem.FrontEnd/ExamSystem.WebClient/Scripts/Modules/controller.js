@@ -122,15 +122,12 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
         }
 
         function showProblems(){
-            var $examId = $('#exam-id').val();
-            $.ajax({url: "http://localhost:1945/api/Problems/All?ExamID=" + $examId,
-                type: "GET",
-                success: function (data) {
+            var $examId = $('#exam-link-id').html();
+
+            $.ajax("http://localhost:1945/api/Problems/All/?ExamID=" + $examId)
+                .then(function (data) {
                     htmlRenderer.renderAllProblems(data);
-                },
-                error: function (errorData) {
-                }
-            })
+            });
         }
 
         function addComment(){
