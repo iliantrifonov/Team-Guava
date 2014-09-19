@@ -101,6 +101,7 @@
             }
 
             var exams = user.Exams.AsQueryable()
+                .OrderBy(e => e.StartTime)
                 .Select(ExamDataModel.GetModel);
 
             return Ok(exams);

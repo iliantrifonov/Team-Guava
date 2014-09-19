@@ -59,6 +59,7 @@
             }
 
             var comments = exam.Comments.AsQueryable()
+                .OrderByDescending(c => c.Date)
                 .Select(CommentsDataModel.GetModel);
 
             return Ok(comments);

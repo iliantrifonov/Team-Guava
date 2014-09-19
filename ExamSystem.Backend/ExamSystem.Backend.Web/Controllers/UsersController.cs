@@ -21,7 +21,9 @@
         [HttpGet]
         public IHttpActionResult All()
         {
-            var users = this.data.Users.All().Select(u => new UserDataModelForSending()
+            var users = this.data.Users.All()
+                .OrderBy(u=> u.UserName)
+                .Select(u => new UserDataModelForSending()
             {
                 Email = u.Email,
                 Id = u.Id

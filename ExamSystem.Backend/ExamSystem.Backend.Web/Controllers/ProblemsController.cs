@@ -39,6 +39,7 @@
 
             var problems = exam.Problems
                 .AsQueryable()
+                .OrderBy(p => p.Id)
                 .Select(ProblemDataModel.GetModel);
 
             return Ok(problems);
