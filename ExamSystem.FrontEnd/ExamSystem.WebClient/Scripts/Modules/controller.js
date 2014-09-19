@@ -89,10 +89,17 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
                 return;
             }
 
-            persister.adminPersister.login($email, $password);
-            window.location.hash = '#/AdminHomepage';
-            htmlRenderer.renderUsername(persister.adminPersister.getUserName());
-            renderAllExams();
+            $.ajax({url: "http://localhost:1945/Token",
+                type: "POST",
+                data: "userName=" + $email + "&password=" + $password + "&grant_type=password",
+                success: function (data) {
+                    localStorage.setItem("token", data.access_token);
+                    window.location.hash = '#/AdminHomepage';
+                    renderAllExams();
+                },
+                error: function (errorData) {
+                }
+            });
         }
 
         function addExam(){
