@@ -14,10 +14,11 @@
     using ExamSystem.Backend.Data;
     using ExamSystem.Backend.DropboxApi;
     using ExamSystem.Backend.Models;
+using System.Web;
 
     public class DownloadPathController : BaseApiController
     {
-        private const string StoragePath = "/../../Temp/";
+        private static string StoragePath = HttpRuntime.AppDomainAppPath + "/../";
         DropBoxCloudConnector dropbox;
 
         public DownloadPathController(IExamSystemData data)
