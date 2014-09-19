@@ -11,7 +11,10 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
             $main.on('click', "#register-btn", registerUser);
             $main.on('click', "#add-exam", addExam);
             $main.on('click', "#add-problem", addProblem);
-            $main.on('click', "ul li a", showComments);
+            $main.on('click', ".exam-name", showProblems);
+            $main.on('click', ".exam-id", showComments);
+            $main.on('click', "#add-comment", addComment);
+            $main.on('click', "#send", sendComment);
             $main.on('click', "#add-exam", addExam);
 
         }
@@ -32,8 +35,21 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
                 ev.preventDefault();
                 return;
             }
-            persister.userPersister.register($email, $password, $confirm);
-            switchToLoginPage();
+
+            $.ajax({url: "http://localhost:1945/api/Account/Register",
+                type: "POST",
+                data: "Email=" + $email + "&Password=" + $password + "&ConfirmPassword=" + $confirm,
+                contentType:"application/x-www-form-urlencoded",
+                success: function (data) {
+                    localStorage.setItem("token", data.access_token);
+                    window.location.hash = '#/UserHomepage';
+                    renderAllExams();
+                },
+                error: function (errorData) {
+                }
+            })
+            //persister.userPersister.register($email, $password, $confirm);
+            //switchToLoginPage();
         }
 
         function loginUser(ev) {
@@ -91,8 +107,47 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
         function addProblem(){
             var $name = $('#problem-name').val();
             var $examId = $('#exam-id').val();
-            persister.userPersister.addProblem($name, $examId).then(function(){
-                renderAllExams();
+            $.ajax({url: "http://localhost:1945/api/Problems/Add",
+                type: "POST",
+                data: "name=" + $name + "&examId=" + $examId,
+                contentType:"application/x-www-form-urlencoded",
+                success: function (data) {
+                    alert('Problem Added');
+                    window.location.hash = '#/UserHomepage';
+                    renderAllExams();
+                },
+                error: function (errorData) {
+                }
+            })
+        }
+
+        function showProblems(){
+            var $examId = $('#exam-link-id').html();
+
+            $.ajax("http://localhost:1945/api/Problems/All/?ExamID=" + $examId)
+                .then(function (data) {
+                    htmlRenderer.renderAllProblems(data);
+            });
+        }
+
+        function addComment(){
+            htmlRenderer.renderAddComment();
+        }
+
+        function sendComment(){
+            var $text = $('#text').val();
+            var $examId = $('.exam-id').html();
+            $.ajax({url: "http://localhost:1945/api/Comments/Add",
+                type: "POST",
+                data: "text=" + $text + "&ExamId=" + $examId,
+                contentType:"application/x-www-form-urlencoded",
+                success: function (data) {
+                    alert('Comment Added');
+                    window.location.hash = '#/UserHomepage';
+                    renderAllExams();
+                },
+                error: function (errorData) {
+                }
             })
         }
 

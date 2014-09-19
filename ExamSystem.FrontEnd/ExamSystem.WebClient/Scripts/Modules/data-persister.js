@@ -161,7 +161,7 @@
                     console.log(err.responseText); // to handle the error better!
                 });
             },
-            addExam: function(name, start, end){
+            addExam: function (name, start, end) {
                 return httpRequester.get().postJSON(this.serviceUrl + 'api/Exams/Add', {
                     Name: name,
                     StartTime: start,
@@ -172,7 +172,7 @@
                     console.log(err.responseText); // to handle the error better!
                 });
             },
-            addProblem: function(name, examId){
+            addProblem: function (name, examId) {
                 return httpRequester.get().getJSON(this.serviceUrl + 'api/Problems/Add', {
                     name: name,
                     ExamId: examId
@@ -185,6 +185,13 @@
             getComments: function (examId) {
                 return httpRequester.get().getJSON(this.serviceUrl + 'api/Comments/All?ExamID=' + examId).then(function (data) {
                     htmlRenderer.renderAllComments(data);
+                }, function (err) {
+                    console.log(err.responseText); // to handle the error better!
+                });
+            },
+            getAllProblems: function (examId) {
+                return httpRequester.get().getJSON(this.serviceUrl + 'api/Problems/All?ExamID=' + examId).then(function (data) {
+                    htmlRenderer.renderAllProblems(data);
                 }, function (err) {
                     console.log(err.responseText); // to handle the error better!
                 });
