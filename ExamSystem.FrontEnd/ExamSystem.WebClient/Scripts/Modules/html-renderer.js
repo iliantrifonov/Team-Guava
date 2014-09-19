@@ -39,7 +39,11 @@
 
         function renderAllProblems(data) {
             var $problemsUl = $('<ul>');
-            var template = '<li><p>{{{Name}}}</p></li>';
+            var template = '<li><p id="problem-id">{{{Id}}}</p><p>{{{Name}}}</p><textarea id="message" placeholder="Message"></textarea>' +
+                '<form method="post" action="api/upload" name="file-form" enctype="multipart/form-data">' +
+                '<input name="file" id="file" type="file" class="btn" />' +
+                '<input type="button" id="send-file" class="btn" value="Upload" />' +
+                '</form>';
 
             for (var i = 0; i < data.length; i++) {
                 $problemsUl.append(Mustache.to_html(template, data[i]));
