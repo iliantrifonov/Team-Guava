@@ -32,8 +32,21 @@ define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htm
                 ev.preventDefault();
                 return;
             }
-            persister.userPersister.register($email, $password, $confirm);
-            switchToLoginPage();
+
+            $.ajax({url: "http://localhost:1945/api/Account/Register",
+                type: "POST",
+                data: "Email=" + $email + "&Password=" + $password + "&ConfirmPassword=" + $confirm,
+                contentType:"application/x-www-form-urlencoded",
+                success: function (data) {
+                    localStorage.setItem("token", data.access_token);
+                    window.location.hash = '#/UserHomepage';
+                    renderAllExams();
+                },
+                error: function (errorData) {
+                }
+                })
+            //persister.userPersister.register($email, $password, $confirm);
+            //switchToLoginPage();
         }
 
         function loginUser(ev) {
