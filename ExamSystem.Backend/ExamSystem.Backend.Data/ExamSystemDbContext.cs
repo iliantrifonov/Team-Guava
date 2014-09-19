@@ -8,7 +8,7 @@
     public class ExamSystemDbContext : IdentityDbContext<User>
     {
         public ExamSystemDbContext()
-            : base("ExamSystemDb", throwIfV1Schema: false)
+            : base("ExamSystemDbCloud2", throwIfV1Schema: false)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ExamSystemDbContext, Configuration>());
         }

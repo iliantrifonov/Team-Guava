@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamSystem.Backend.Web", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamSystem.Backend.Data", "ExamSystem.Backend.Data\ExamSystem.Backend.Data.csproj", "{FBA4A681-8534-4945-85FC-42C44414033F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{4BA4F162-F815-4AA7-99DB-11A6B25207F6}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{70E28F26-C75E-449A-8D18-383B86214EE5}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
@@ -38,10 +36,6 @@ Global
 		{FBA4A681-8534-4945-85FC-42C44414033F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBA4A681-8534-4945-85FC-42C44414033F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBA4A681-8534-4945-85FC-42C44414033F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4BA4F162-F815-4AA7-99DB-11A6B25207F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BA4F162-F815-4AA7-99DB-11A6B25207F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BA4F162-F815-4AA7-99DB-11A6B25207F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BA4F162-F815-4AA7-99DB-11A6B25207F6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FFD64ABA-5379-4BCC-98CE-3DF8CA2720D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FFD64ABA-5379-4BCC-98CE-3DF8CA2720D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFD64ABA-5379-4BCC-98CE-3DF8CA2720D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
