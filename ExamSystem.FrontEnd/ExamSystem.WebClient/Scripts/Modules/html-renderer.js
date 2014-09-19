@@ -6,8 +6,8 @@
 
         function renderAllExams(data) {
             var examUl = $('<ul>');
-            var template = '<li><a href="#">{{{Name}}}</a><p>StartTime: {{{StartTime}}}</p><p>EndTime: {{{EndTime}}}</p>' +
-                '<a class="exam-id" href="#">{{{Id}}}</a></li>';
+            var template = '<li><a class="exam-name" href="#">{{{Name}}}</a><p>StartTime: {{{StartTime}}}</p><p>EndTime: {{{EndTime}}}</p>' +
+                '<a class="exam-id" href="#">{{{Id}}}</a><button id="add-comment" class="btn">Add Comment</button></li>';
 
             for (var i = 0; i < data.length; i++) {
                 examUl.append(Mustache.to_html(template, data[i]));
@@ -30,10 +30,18 @@
            
         }
 
+        function renderAddComment(){
+            var $text = $('<textarea id="text" />');
+            var $button = $('<button id="send" class="btn">SEND</button>');
+            $('#exams-container').append($text);
+            $('#exams-container').append($button);
+        }
+
         return {
             renderUsername: renderUsername,
             renderAllExam: renderAllExams,
-            renderAllComments: renderAllComments
+            renderAllComments: renderAllComments,
+            renderAddComment: renderAddComment
         }
     })();
     return htmlRenderer;
