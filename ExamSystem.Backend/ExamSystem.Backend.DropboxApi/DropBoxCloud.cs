@@ -4,6 +4,8 @@
     using System.Diagnostics;
     using System.IO;
     using System.Linq;
+    using System.Web;
+
     using Spring.IO;
     using Spring.Social.Dropbox.Api;
     using Spring.Social.Dropbox.Connect;
@@ -13,7 +15,7 @@
     {
         private const string DropboxAppKey = "l9mc7m7bo7re2g4";
         private const string DropboxAppSecret = "zdwnymv8ilbbz00";
-        private const string OAuthTokenFileName = @"C:\Users\Nikki\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Web\Resources\OAuthTokenFileName.txt";//"../Resources/OAuthTokenFileName.txt";
+        private static string OAuthTokenFileName = HttpRuntime.AppDomainAppPath + "Resources/OAuthTokenFileName.txt";// @"C:\Users\Nikki\Desktop\Guava\Team-Guava\ExamSystem.Backend\ExamSystem.Backend.Web\Resources\OAuthTokenFileName.txt";//"../Resources/OAuthTokenFileName.txt";
 
         private string dropboxAppKey;
         private string dropboxAppSecret;
