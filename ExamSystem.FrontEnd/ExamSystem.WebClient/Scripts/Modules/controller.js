@@ -1,29 +1,64 @@
-﻿define(["Mustache", "jquery"], function (Mustache) {
-    var htmlRenderer = (function () {
-        function renderUsername(username) {
-            $('span#username').html = username;
+﻿/// <reference path="data-persister.js" />
+define(["DataPersister", "htmlRenderer", "jquery"], function (DataPersister, htmlRenderer) {
+    var controller = (function () {
+        var persister = DataPersister.getDataPersister('http://localhost:1945/');
+        var $main = $('#main');
+
+        function attachEvents() {
+            $main.on('click', '#login-user', loginUser);
+            $main.on('click', '#login-admin', loginAdmin);
+            $main.on('click', '#all-exams', renderAllExams);
+            $main.on('click', "#register-btn", registerUser);
+            $main.on('click', "#add-exam", addExam);
+            $main.on('click', "#add-problem", addProblem);
+            $main.on('click', ".exam-name", showProblems);
+            $main.on('click', ".exam-id", showComments);
+            $main.on('click', "#add-comment", addComment);
+            $main.on('click', "#send", sendComment);
+            $main.on('click', "#add-exam", addExam);
+
         }
 
-        function renderAllExams(data) {
-            var examUl = $('<ul>');
-            var template = '<li><a class="exam-name" href="#">{{{Name}}}</a><p>StartTime: {{{StartTime}}}</p><p>EndTime: {{{EndTime}}}</p>' +
-                '<a class="exam-id" href="#">{{{Id}}}</a><button id="add-comment" class="btn">Add Comment</button></li>';
-
-            for (var i = 0; i < data.length; i++) {
-                examUl.append(Mustache.to_html(template, data[i]));
-                console.log(data[i].Id);
+        function Controller() {
         }
 
-            $('#exams-container').html(examUl);
+        function switchToLoginPage() {
+            window.location.hash = '#/';
+        }
+
+        function registerUser(ev) {
+            var $email = $('#email').val();
+            var $password = $('#password').val();
+            var $confirm = $('#confirm-password').val();
+            if ($email === '' || $password === '' || $confirm === '') {
+                alert("Username and password are required");
+                ev.preventDefault();
+                return;
             }
 
-        function renderAllComments(data){
-            var examUl = $('<ul>');
-            var template = '<li><p>{{{Text}}}</p><p>Date: {{{Date}}}</p>' +
-                '<a href="#">{{{Id}}}</a></li>';
+            $.ajax({url: "http://localhost:1945/api/Account/Register",
+                type: "POST",
+                data: "Email=" + $email + "&Password=" + $password + "&ConfirmPassword=" + $confirm,
+                contentType:"application/x-www-form-urlencoded",
+                success: function (data) {
+                    localStorage.setItem("token", data.access_token);
+                    window.location.hash = '#/UserHomepage';
+                    renderAllExams();
+                },
+                error: function (errorData) {
+                }
+            })
+            //persister.userPersister.register($email, $password, $confirm);
+            //switchToLoginPage();
+        }
 
-            for (var i = 0; i < data.length; i++) {
-                examUl.append(Mustache.to_html(template, data[i]));
+        function loginUser(ev) {
+            var $email = $('#email').val();
+            var $password = $('#password').val();
+            if ($email === '' || $password === '') {
+                alert("Username and password are required");
+                ev.preventDefault();
+                return;
             }
 
             $.ajax({url: "http://localhost:1945/Token",
@@ -87,25 +122,52 @@
         }
 
         function showProblems(){
-            var examId = $('#exams-container > ul > li').children('a.exam-id').html();
-            persister.userPersister.getAllProblems(examId);
+            var $examId = $('#exam-id').val();
+            $.ajax({url: "http://localhost:1945/api/Problems/All?ExamID=" + $examId,
+                type: "GET",
+                success: function (data) {
+                    htmlRenderer.renderAllProblems(data);
+                },
+                error: function (errorData) {
+                }
+            })
         }
 
+        function addComment(){
+            htmlRenderer.renderAddComment();
         }
 
-        function renderAddComment(){
-            var $text = $('<textarea id="text" />');
-            var $button = $('<button id="send" class="btn">SEND</button>');
-            $('#exams-container').append($text);
-            $('#exams-container').append($button);
+        function sendComment(){
+            var $text = $('#text').val();
+            var $examId = $('.exam-id').html();
+            $.ajax({url: "http://localhost:1945/api/Comments/Add",
+                type: "POST",
+                data: "text=" + $text + "&ExamId=" + $examId,
+                contentType:"application/x-www-form-urlencoded",
+                success: function (data) {
+                    alert('Comment Added');
+                    window.location.hash = '#/UserHomepage';
+                    renderAllExams();
+                },
+                error: function (errorData) {
+                }
+            })
+        }
+
+        function showComments(){
+            var examId = $('.exam-id').html();
+            persister.userPersister.getComments(examId);
+        }
+
+        function renderAllExams() {
+            var examsData = persister.userPersister.getAllExams();
+            htmlRenderer.renderAllExam(examsData);
         }
 
         return {
-            renderUsername: renderUsername,
-            renderAllExam: renderAllExams,
-            renderAllComments: renderAllComments,
-            renderAddComment: renderAddComment
+            attachEvents: attachEvents
         }
     })();
-    return htmlRenderer;
+
+    return controller;
 });
